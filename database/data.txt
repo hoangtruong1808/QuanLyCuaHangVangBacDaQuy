@@ -1,0 +1,38 @@
+insert into tbl_code (code_id, category_product, unit, product, vendor, user, customer, invoice, goods_received_note, goods_delivery_note, inventory_sheet, created_at) values 
+(1, 'CP', 'UN', 'PD', 'VD', 'US', 'CTM', 'IV', 'GRN', 'GDN', 'IS', '2021-09-28 13:54:53');
+
+insert into tbl_category_product (STT, category_id, category_name, category_parent_id, category_slug, created_at) values 
+(1, 'CP1', 'Sữa bột cho trẻ nhỏ', '0', 'sua-bot-tre-nho','2021-09-28 13:54:53'),
+(2, 'CP2', 'Sữa bột cho người lớn tuổi', '0', 'sua-bot-cho-nguoi-lon-tuoi','2021-09-28 13:54:53'),
+(3, 'CP3', 'Sữa bột cho mẹ bầu', '0', 'sua-bot-cho-me-bau','2021-09-28 13:54:53'),
+(4, 'CP4', 'Bột ăn dặm', '0', 'bot-an-dam','2021-09-28 13:54:53'),
+(5, 'CP5', 'Sữa đặc', '0', 'sua-dat','2021-09-28 13:54:53'),
+(6, 'CP6', 'Sữa nước', '0', 'sua-nuoc','2021-09-28 13:54:53'),
+(7, 'CP7', 'Sữa chua uống', '0', 'sua-chua-uong','2021-09-28 13:54:53'),
+(8, 'CP8', 'Sữa chua ăn', '0', 'sua-chua-an','2021-09-28 13:54:53'),
+(9, 'CP9', 'Sữa đậu nành', '0', 'sua-dau-nanh','2021-09-28 13:54:53'),
+(10, 'CP10', 'Organic Gold', 'CP1', 'organic-gold','2021-09-28 13:54:53'),
+(11, 'CP11', 'Yoko Gold', 'CP1', 'yoko-gold','2021-09-28 13:54:53'),
+(12, 'CP12', 'Bột ăn dặm Ridielac Gold', 'CP4', 'bot-an-dam-ridielac-gold','2021-09-28 13:54:53'),
+(13, 'CP13', 'Optimum Mama Gold', 'CP3', 'optimum-mama-gold','2021-09-28 13:54:53'),
+(14, 'CP14', 'Dinh Dưỡng', 'CP2', 'dinh-duong','2021-09-28 13:54:53'),
+(15, 'CP15', 'Creamer đặc Tài Lộc', 'CP5', 'creamer-dac-tai-loc','2021-09-28 13:54:53'),
+(16, 'CP16', 'Sữa tiệt trùng', 'CP6', 'sua-tiet-trung','2021-09-28 13:54:53'),
+(17, 'CP17', 'Sữa đậu nành GoldSoy', 'CP11', 'sua-dau-nanh-goldsoy','2021-09-28 13:54:53');
+
+insert into tbl_unit (STT, unit_id, unit_name, unit_slug, created_at) values 
+(1, 'UN1', 'Chai', 'chai','2021-09-28 13:54:53'),
+(2, 'UN2', 'Bịch', 'bich','2021-09-28 13:54:53'),
+(3, 'UN3', 'Hộp', 'hoc','2021-09-28 13:54:53'),
+(4, 'UN4', 'Lốc', 'loc','2021-09-28 13:54:53'),
+(5, 'UN5', 'Thùng', 'thung','2021-09-28 13:54:53'),
+(6, 'UN6', 'Cây', 'cay','2021-09-28 13:54:53');
+
+insert into tbl_vendor (vendor_id, company_name, vendor_email, vendor_numberphone, vendor_address, vendor_area, vendor_province, vendor_district, vendor_wards, tax_code, vendor_desc,representative_name, created_at) values 
+('VD1', 'Công ty CP Sữa Việt Nam (Vinamilk)', 'vinamilk@vinamilk.com.vn', '(028) 54 155 555','10 Tân Trào, Tân Phú, Quận 7, Thành phố Hồ Chí Minh, Vietnam','Việt Nam', 'TP. Hồ Chí Mình', 'Quận 7','Tân Phú', '3600235305','không có','Ngộ Thị D', '2021-09-28 13:54:53'),
+('VD2', 'Công ty TNHH Nestlé Việt Nam', 'consumer.services@vn.nestle.com', '028-39113737','Lầu 5, Empress Tower 138 – 142 Hai Bà Trưng - Phường Đa Kao - Quận 1 - TP. Hồ Chí Minh','Việt Nam', 'TP. Hồ Chí Mình', 'Quận 1','Phường Đa Kao', '3600235305','không có','Đinh Văn C', '2021-09-28 13:54:53'),
+('VD3', 'CÔNG TY TNHH MEAD JOHNSON NUTRITION (VIỆT NAM)', 'lien-he@enfa.com.vn', '1900 6602','P401 Lầu 4 Tn Metropolitan, Số 235 Đồng Khởi - Phường Bến Nghé - Quận 1 - TP. Hồ Chí Minh','Việt Nam', 'TP. Hồ Chí Mình', 'Quận 1','Phường Bến Nghé', '0305795720','không có','Nguyễn Văn A', '2021-09-28 13:54:53'),
+('VD4', 'Công ty Cổ phần Chuỗi Thực phẩm TH', 'chamsockhachhang@thmilk.vn', '1800545440','166 Nguyễn Thái Học, P. Quang Trung, TP. Vinh, Nghệ An', 'Việt Nam', 'Nghệ An', 'TP. Vinh','Phường Quang Trung', '2901270911','không có','Lê Văn B', '2021-09-28 13:54:53');
+
+
+

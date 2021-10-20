@@ -1,0 +1,25 @@
+// import , export
+public function export_csv_vendor() {
+    return Excel::download(new ExportVendor , 'vendor.xlsx');
+}
+
+public function import_csv_vendor(Request $request) {
+    $path = $request->file('file')->getRealPath();
+    Excel::import(new ImportVendor, $path);
+    return back();
+}
+
+// php artisan make:import Imports --model=CategoryProduct
+// php artisan make:export Exports --model=CategoryProduct
+// php artisan make:model CategoryProduct
+
+
+// print pdf
+public function print_vendor() {
+    $vendor = DB::table('tbl_vendor')->get();
+    $pdf  = PDF::loadview('admin.reports.reports_vendor', ['vendor' => $vendor]);
+
+    return $pdf->download('report_vendor.pdf')->header('Content-Type','application/pdf');
+}
+// viết giao diện ở file report
+
