@@ -25,9 +25,12 @@ Route::get('/home', function () {
     return view('home.dashboard');
 });
 
-Route::get('/quan-ly-khach-hang', function () {
+Route::get('/them-khach-hang', function () {
     return view('quanlykhachhang.themkhachhang');
 });
 
+Route::get('/xoa-khach-hang', function () {
+    return view('quanlykhachhang.xoakhachhang');
+});
 
 

@@ -16,6 +16,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //bootstrap-css -->
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
 <!-- Custom CSS -->
 <link href="{{asset('public/backend/css/style.css')}}" rel='stylesheet' type='text/css' />
 <link href="{{asset('public/backend/css/style-responsive.css')}}" rel="stylesheet"/>
@@ -103,6 +115,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <i class="fa fa-dashboard"></i>
                         <span>Dashboard</span>
                     </a>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>Quản lý khách hàng</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="them-khach-hang">Thêm khách hàng</a></li>
+                        <li><a href="xoa-khach-hang">Xóa khách hàng</a></li>
+                        <li><a href="sua-khach-hang">Sửa khách hàng</a></li>
+                    </ul>
                 </li>
 
                 <li class="sub-menu">
