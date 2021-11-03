@@ -124,8 +124,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </a>
                     <ul class="sub">
                         <li><a href="them-khach-hang">Thêm khách hàng</a></li>
-                        <li><a href="xoa-khach-hang">Xóa khách hàng</a></li>
-                        <li><a href="sua-khach-hang">Sửa khách hàng</a></li>
+                        <li><a href="danh-sach-khach-hang">Danh sách khách hàng</a></li>
                     </ul>
                 </li>
 
@@ -135,11 +134,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span>Quản lý nhà cung cấp</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="">Thêm nhà cung cấp</a></li>
-                        <li><a href="">Xóa nhà cung cấp</a></li>
-                        <li><a href="">Sửa nhà cung cấp</a></li>
+                        <li><a href="them-nha-cung-cap">Thêm nhà cung cấp</a></li>
+                        <li><a href="danh-sach-nha-cung-cap">Danh sách nhà cung cấp</a></li>
                     </ul>
                 </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>Quản lý nhân viên</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="them-nhan-vien">Thêm nhân viên</a></li>
+                        <li><a href="danh-sach-nhan-vien">Danh sách nhân viên</a></li>
+                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                        <i class="fa fa-book"></i>
+                        <span>Quản lý sản phẩm</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="them-san-pham">Thêm sản phẩm</a></li>
+                        <li><a href="danh-sach-san-pham">Danh sách sản phẩm</a></li>
+                    </ul>
+                </li>
+
                 <li class="sub-menu">
                     <a href="">
                         <i class="fa fa-book"></i>

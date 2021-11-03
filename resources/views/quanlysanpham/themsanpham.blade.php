@@ -2,65 +2,53 @@
 @section('content')
         <section class="panel">
             <header class="panel-heading">
-                Thêm khách hàng
+                Thêm sản phẩm
             </header>
             <div class="panel-body">
                 <form class="form-horizontal bucket-form" method="get">
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Họ tên</label>
+                        <label class="col-sm-3 control-label">Tên sản phẩm</label>
                         <div class="col-sm-6">
                             <input type="text" class="form-control" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">CMND</label>
+                        <label class="col-sm-3 control-label">Khối lượng</label>
                         <div class="col-sm-6">
                             <input type="text" class="form-control" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Ngày sinh</label>
+                        <label class="col-sm-3 control-label">Loại</label>
                         <div class="col-sm-6">
-                            <input type="text" placeholder="DD/MM/YYYY" class="form-control">
+                            <input type="text" class="form-control" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Giới tính</label>
+                        <label class="col-sm-3 control-label">Tiêu chuẩn</label>
                         <div class="col-sm-6">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" value="">
-                                    Nam
-                                </label>
-                                <label>
-                                    <input type="checkbox" value="">
-                                    Nữ
-                                </label>
-                            </div>
+                            <input type="text" class="form-control" required> 
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Địa chỉ</label>
+                        <label class="col-sm-3 control-label">Giá nhập</label>
                         <div class="col-sm-6">
                             <input type="text" class="form-control round-input" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Điện thoại</label>
+                        <label class="col-sm-3 control-label">Giá bán</label>
                         <div class="col-sm-6">
                             <input type="text" class="form-control" placeholder="placeholder" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Ảnh đại diện</label>
+                        <label class="col-sm-3 control-label">Tình trạng</label>
                         <div class="col-sm-6">
-                            <input type="file" class="form-control" placeholder="placeholder" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">Ảnh đại diện</label>
-                        <div class="col-sm-6">
-                            <textarea class='form-control'></textarea>
+                            <select class="form-control">
+                                <option>Tồn tại</option>
+                                <option>Không tồn tại</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">

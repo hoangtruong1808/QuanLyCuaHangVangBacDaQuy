@@ -2,7 +2,7 @@
 @section('content')
         <section class="panel">
             <header class="panel-heading">
-                Thêm khách hàng
+                Thêm nhân viên
             </header>
             <div class="panel-body">
                 <form class="form-horizontal bucket-form" method="get">
@@ -13,30 +13,30 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">CMND</label>
+                        <label class="col-sm-3 control-label">Tài khoản</label>
                         <div class="col-sm-6">
                             <input type="text" class="form-control" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Ngày sinh</label>
+                        <label class="col-sm-3 control-label">Mật khẩu</label>
                         <div class="col-sm-6">
-                            <input type="text" placeholder="DD/MM/YYYY" class="form-control">
+                            <input type="password" placeholder="DD/MM/YYYY" class="form-control" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Giới tính</label>
+                        <label class="col-sm-3 control-label">CMND</label>
                         <div class="col-sm-6">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" value="">
-                                    Nam
-                                </label>
-                                <label>
-                                    <input type="checkbox" value="">
-                                    Nữ
-                                </label>
-                            </div>
+                            <input type="text" class="form-control round-input" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Chức vụ</label>
+                        <div class="col-sm-6">
+                            <select class='form-control'>
+                                <option>Nhân viên</option>
+                                <option>Quản lý</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
@@ -52,13 +52,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Ảnh đại diện</label>
-                        <div class="col-sm-6">
-                            <input type="file" class="form-control" placeholder="placeholder" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label">Ảnh đại diện</label>
+                        <label class="col-sm-3 control-label">Ghi chú</label>
                         <div class="col-sm-6">
                             <textarea class='form-control'></textarea>
                         </div>
