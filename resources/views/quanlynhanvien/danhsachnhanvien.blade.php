@@ -18,10 +18,10 @@
     ?>
     <header class="panel-heading">
         <div class="col-sm-11">
-            Danh sách khách hàng
+            Danh sách nhân viên
         </div>
         <div class="col-sm-1">
-            <a href="{{ URL::to('them-khach-hang') }}" class="btn btn-danger"><i class="fa fa-plus" aria-hidden="true"></i> Thêm</a>
+            <a href="{{ URL::to('them-nhan-vien') }}" class="btn btn-danger"><i class="fa fa-plus" aria-hidden="true"></i> Thêm</a>
         </div>
     </header>
     <?php $stt = 1; ?>
@@ -36,14 +36,14 @@
             <th style="color:black">Điện thoại</th>
             <th style="color:black">Sửa</th>
             <th style="color:black">Xóa</th>
-            <th style="color:black">Tính lương</th>
+            <th style="color:black; width: 80px">Tính lương</th>
         </tr>
         </thead>
         <tbody>
             @foreach($nhanvien as $value)
         <tr id="value{{$value->ID}}">          
             <td style="color:black">{{$stt++}}</td>
-            <td style="color:black">{{$value->HoTen}}</td>
+            <td style="color:black"><a href="{{ route('ChiTietNhanVien',['id'=>$value->ID]) }}">{{$value->HoTen}}</a></td>
             <td style="color:black">{{$value->CMND}}</td>
             <td style="color:black">{{$value->ChucVu}}</td>
             <td style="color:black">{{$value->DiaChi}}</td>
@@ -57,7 +57,7 @@
                             <div class="modal-header"> 
                                 <b style="font-size: 17px">Xác nhận</b>
                             </div>
-                            <div class="modal-body" style="font-size: 16px; margin-top: 10px; margin-bottom: 30px">Bạn có chắc muốn xóa dữ liệu này?
+                            <div class="modal-body" style="font-size: 16px; margin-top: 10px; margin-bottom: 30px">Bạn có chắc muốn xóa nhân viên này?
                             </div>
                             <div class="modal-footer">
                                 <button class="btn btn-secondary" type="button" data-dismiss="modal" >Hủy</button>
@@ -77,7 +77,7 @@
 
 <script>
 $( document ).ready(function() {
-    $(".xoa-khach-hang").click(function(){
+    $(".xoa-nhan-vien").click(function(){
              var id = $(this).data("id");
             $.ajaxSetup({
                 headers: {
@@ -85,7 +85,7 @@ $( document ).ready(function() {
                 }
             });
             $.ajax({
-                url: "xoa-khach-hang/" +id,
+                url: "xoa-nhan-vien/" +id,
                 method: 'POST',
                 data: {
                     "id":id

@@ -31,6 +31,7 @@
                 <th style="color:black">STT</th>
                 <th style="color:black">Tên nhà cung cấp</th>
                 <th style="color:black">Số điện thoại</th>
+                <th style="color:black">Gmail</th>
                 <th style="color:black">Ghi chú</th>
                 <th style="color:black">Sửa</th>
                 <th style="color:black">Xóa</th>
@@ -40,8 +41,9 @@
             @foreach($nhacungcap as $value)
         <tr id="value{{$value->ID}}">          
             <td style="color:black">{{$stt++}}</td>
-            <td style="color:black">{{$value->Ten}}</td>
+            <td style="color:black"><a href="{{ route('ChiTietNhaCungCap',['id'=>$value->ID]) }}">{{$value->Ten}}</a></td>
             <td style="color:black">{{$value->DienThoai}}</td>
+            <td style="color:black">{{$value->Gmail}}</td>
             <td style="color:black">{{$value->GhiChu}}</td>
             <td style="color:black"><a href="{{ route('SuaNhaCungCap',['id'=>$value->ID]) }}"><i style="color:green" class="fas fa-edit"></i></a></td>
             <td style="color:black">

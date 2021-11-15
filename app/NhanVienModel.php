@@ -10,7 +10,7 @@ class NhanVienModel extends Model
     const UPDATED_AT = null;
     const CREATED_AT = null;
     protected $fillable = [
-        'HoTen', 'TaiKhoan', 'MatKhau', 'CMND', 'ChucVu', 'DiaChi', 'DienThoai', 'AnhDaiDien' ,'GhiChu'
+        'HoTen', 'TaiKhoan', 'MatKhau', 'CMND', 'ChucVu', 'DiaChi', 'DienThoai', 'AnhDaiDien' ,'GhiChu', 'TrangThai'
     ];
     protected $primaryKey = 'ID';
     protected $table = 'tbl_nhanvien';

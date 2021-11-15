@@ -118,8 +118,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span>Quản lý nhân viên</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="them-nhan-vien">Thêm nhân viên</a></li>
-                        <li><a href="danh-sach-nhan-vien">Danh sách nhân viên</a></li>
+                        <li><a href="{{ URL::to('danh-sach-nhan-vien') }}">Danh sách nhân viên</a></li>
+                        <li><a href="{{ URL::to('diem-danh-nhan-vien') }}">Điểm danh nhân viên</a></li>
                     </ul>
                 </li>
 

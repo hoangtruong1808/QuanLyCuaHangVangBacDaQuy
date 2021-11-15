@@ -43,7 +43,7 @@
             @foreach($khachhang as $value)
         <tr id="value{{$value->ID}}">          
             <td style="color:black">{{$stt++}}</td>
-            <td style="color:black">{{$value->HoTen}}</td>
+            <td style="color:black"><a href="{{ route('ChiTietKhachHang',['id'=>$value->ID]) }}">{{$value->HoTen}}</a></td>
             <td style="color:black">{{$value->CMND}}</td>
             <td style="color:black">{{$value->NgaySinh}}</td>
             <td style="color:black">{{$value->GioiTinh}}</td>

@@ -32,6 +32,7 @@ Route::post('/luu-khach-hang', 'KhachHangController@LuuKhachHang')->name('LuuKha
 Route::get('/danh-sach-khach-hang', 'KhachHangController@DanhSachKhachHang')->name('DanhSachKhachHang');
 Route::post('/xoa-khach-hang/{id}', 'KhachHangController@XoaKhachHang')->name('XoaKhachHang');
 Route::get('/sua-khach-hang/{id}', 'KhachHangController@SuaKhachHang')->name('SuaKhachHang');
+Route::get('/chi-tiet-khach-hang/{id}', 'KhachHangController@ChiTietKhachHang')->name('ChiTietKhachHang');
 Route::post('/cap-nhat-khach-hang/{id}', 'KhachHangController@CapNhatKhachHang')->name('CapNhatKhachHang');
 
 //Nhà cung cấp
@@ -42,6 +43,7 @@ Route::post('/luu-nha-cung-cap', 'NhaCungCapController@LuuNhaCungCap')->name('Lu
 Route::get('/danh-sach-nha-cung-cap', 'NhaCungCapController@DanhSachNhaCungCap')->name('DanhSachNhaCungCap');
 Route::post('/xoa-nha-cung-cap/{id}', 'NhaCungCapController@XoaNhaCungCap')->name('XoaNhaCungCap');
 Route::get('/sua-nha-cung-cap/{id}', 'NhaCungCapController@SuaNhaCungCap')->name('SuaNhaCungCap');
+Route::get('/chi-tiet-nha-cung-cap{id}', 'NhaCungCapController@ChiTietNhaCungCap')->name('ChiTietNhaCungCap');
 Route::post('/cap-nhat-nha-cung-cap/{id}', 'NhaCungCapController@CapNhatNhaCungCap')->name('CapNhatNhaCungCap');
 
 //Nhân Viên
@@ -50,10 +52,12 @@ Route::get('/them-nhan-vien', function () {
 });
 Route::post('/luu-nhan-vien', 'NhanVienController@LuuNhanVien')->name('LuuNhanVien');
 Route::get('/danh-sach-nhan-vien', 'NhanVienController@DanhSachNhanVien')->name('DanhSachNhanVien');
-Route::post('/xoa-nhan-vien/{id}', 'NhanVienController@XoaNhaCungCap')->name('XoaNhanVien');
-Route::get('/sua-nhan-vien/{id}', 'NhanVienController@SuaNhaCungCap')->name('SuaNhanVien');
-Route::post('/cap-nhat-nhan-vien/{id}', 'NhanVienController@CapNhatNhaCungCap')->name('CapNhatNhanVien');
-
+Route::post('/xoa-nhan-vien/{id}', 'NhanVienController@XoaNhanVien')->name('XoaNhanVien');
+Route::get('/sua-nhan-vien/{id}', 'NhanVienController@SuaNhanVien')->name('SuaNhanVien');
+Route::post('/cap-nhat-nhan-vien/{id}', 'NhanVienController@CapNhatNhanVien')->name('CapNhatNhanVien');
+Route::get('/chi-tiet-nhan-vien/{id}', 'NhanVienController@ChiTietNhanVien')->name('ChiTietNhanVien');
+Route::get('/diem-danh-nhan-vien', 'NhanVienController@DiemDanhNhanVien')->name('DiemDanhNhanVien');
+Route::post('/luu-diem-danh/{id}', 'NhanVienController@LuuDiemDanh')->name('LuuDiemDanh');
 //Tỷ giá sản phẩm
 Route::get('/them-danh-muc', function () {
     return view('quanlydanhmuc.themdanhmuc');

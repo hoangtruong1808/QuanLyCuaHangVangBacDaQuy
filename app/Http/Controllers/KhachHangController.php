@@ -80,4 +80,14 @@ class KhachHangController extends Controller
         Session::flash('message','Cập nhật thông tin khách hàng thành công!');
         return redirect()->route('DanhSachKhachHang');
     }
+    public function ChiTietKhachHang($id)
+    {
+        $khachhang = DB::table('tbl_khachhang')
+        ->where('ID', $id)
+        ->first();
+        return view('quanlykhachhang.chitietkhachhang')
+            ->with([
+                'data'=>$khachhang,
+        ]);
+    }
 }

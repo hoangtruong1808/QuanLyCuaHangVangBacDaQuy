@@ -16,6 +16,7 @@ class NhaCungCapController extends Controller
             'Ten'=>$request->ten,
             'DienThoai'=>$request->dienthoai,
             'AnhDaiDien'=>$anhdaidien,
+            'Gmail'=>$request->gmail,
             'GhiChu'=>$request->ghichu,
         ]);
         Session::flash('message','Thêm nhà cung cấp thành công!');
@@ -66,10 +67,21 @@ class NhaCungCapController extends Controller
         ->update([
             'Ten'=>$request->ten,
             'DienThoai'=>$request->dienthoai,
+            'Gmail'=>$request->gmail,
             'AnhDaiDien'=>$anhdaidien,
             'GhiChu'=>$request->ghichu,
         ]);
         Session::flash('message','Cập nhật thông tin nhà cung cấp thành công!');
         return redirect()->route('DanhSachNhaCungCap');
+    }
+    public function ChiTietNhaCungCap($id)
+    {
+        $nhacungcap = DB::table('tbl_nhacungcap')
+        ->where('ID', $id)
+        ->first();
+        return view('quanlynhacungcap.chitietnhacungcap')
+            ->with([
+                'data'=>$nhacungcap,
+        ]);
     }
 }

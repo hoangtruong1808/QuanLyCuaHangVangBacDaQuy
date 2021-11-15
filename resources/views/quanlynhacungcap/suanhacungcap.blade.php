@@ -20,6 +20,12 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label class="col-sm-3 control-label">Gmail</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" name="gmail" value="{{ $nhacungcap->Gmail }}" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label class="col-sm-3 control-label">Ảnh đại diện</label>
                         <div class="col-sm-6">
                             <input type="file" name="anhdaidien" class="form-control">
