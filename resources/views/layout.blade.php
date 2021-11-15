@@ -16,18 +16,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //bootstrap-css -->
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
-
-<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.26.0/moment.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap4.min.css">
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap4.min.js"></script>
 <!-- Custom CSS -->
 <link href="{{asset('public/backend/css/style.css')}}" rel='stylesheet' type='text/css' />
 <link href="{{asset('public/backend/css/style-responsive.css')}}" rel="stylesheet"/>
@@ -110,33 +98,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <!-- sidebar menu start-->
         <div class="leftside-navigation">
             <ul class="sidebar-menu" id="nav-accordion">
-                <li>
-                    <a class="active" href="{{URL::to('/dashboard')}}">
-                        <i class="fa fa-dashboard"></i>
-                        <span>Dashboard</span>
+                <li class="sub-menu">
+                    <a href="{{ URL::to('danh-sach-khach-hang') }}">
+                        <i class="fa fa-book"></i>
+                        <span>Khách hàng</span>
                     </a>
                 </li>
 
                 <li class="sub-menu">
-                    <a href="javascript:;">
+                    <a href="{{ URL::to('danh-sach-nha-cung-cap') }}">
                         <i class="fa fa-book"></i>
-                        <span>Quản lý khách hàng</span>
+                        <span>Nhà cung cấp</span>
                     </a>
-                    <ul class="sub">
-                        <li><a href="them-khach-hang">Thêm khách hàng</a></li>
-                        <li><a href="danh-sach-khach-hang">Danh sách khách hàng</a></li>
-                    </ul>
-                </li>
-
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-book"></i>
-                        <span>Quản lý nhà cung cấp</span>
-                    </a>
-                    <ul class="sub">
-                        <li><a href="them-nha-cung-cap">Thêm nhà cung cấp</a></li>
-                        <li><a href="danh-sach-nha-cung-cap">Danh sách nhà cung cấp</a></li>
-                    </ul>
                 </li>
 
                 <li class="sub-menu">
@@ -151,14 +124,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </li>
 
                 <li class="sub-menu">
-                    <a href="javascript:;">
+                    <a href="{{ URL::to('danh-sach-danh-muc') }}">
                         <i class="fa fa-book"></i>
-                        <span>Quản lý sản phẩm</span>
+                        <span>Tỷ giá sản phẩm</span>
                     </a>
-                    <ul class="sub">
-                        <li><a href="them-san-pham">Thêm sản phẩm</a></li>
-                        <li><a href="danh-sach-san-pham">Danh sách sản phẩm</a></li>
-                    </ul>
+                </li>
+
+                <li class="sub-menu">
+                    <a href="{{ URL::to('danh-sach-danh-muc') }}">
+                        <i class="fa fa-book"></i>
+                        <span>Sản phẩm</span>
+                    </a>
                 </li>
 
                 <li class="sub-menu">

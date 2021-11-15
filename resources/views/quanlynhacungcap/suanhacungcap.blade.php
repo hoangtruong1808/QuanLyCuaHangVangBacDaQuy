@@ -5,18 +5,18 @@
                 Thêm nhà cung cấp
             </header>
             <div class="panel-body">
-                <form class="form-horizontal bucket-form"  method="post" action="{{ route('LuuNhaCungCap') }}" enctype="multipart/form-data">
-                    @csrf()
+                <form class="form-horizontal bucket-form"  method="post" action="{{ route('CapNhatNhaCungCap', ['id'=>$nhacungcap->ID]) }}" enctype="multipart/form-data">
+                    @csrf(), 
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Tên nhà cung cấp</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" name="ten" required>
+                            <input type="text" class="form-control" name="ten" value="{{ $nhacungcap->Ten }}" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Số điện thoại</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" name="dienthoai" required>
+                            <input type="text" class="form-control" name="dienthoai" value="{{ $nhacungcap->DienThoai }}" required>
                         </div>
                     </div>
                     <div class="form-group">
@@ -28,7 +28,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Ghi chú</label>
                         <div class="col-sm-6" name="ghichu">
-                            <textarea class="form-control"></textarea>
+                            <textarea class="form-control">{{ $nhacungcap->GhiChu }}</textarea>
                         </div>
                     </div>
                     <div class="form-group">

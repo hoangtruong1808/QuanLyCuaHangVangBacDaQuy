@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-<title>Trang quản lý admin web</title>
+<title>Quản lý cửa hàng vàng bạc đá quý</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -32,33 +32,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			Session::put('message', null);
 		}
 	?>
-		<form action="{{URL::to('/admin-dashboard')}}" method="post">
+		<form action="{{ route('DanhSachKhachHang') }}" method="get">
 			{{ csrf_field() }}
 			<!-- @foreach($errors->all() as $val)
 			<ul>
 				<li>{{$val}}</li>
 			</ul>
 			@endforeach -->
-			<input type="text" class="ggg" name="admin_email" placeholder="Nhập email" required="">
-			<input type="password" class="ggg" name="admin_password" placeholder="Nhập password" required="">
+			<input type="text" class="ggg" name="admin_email" placeholder="Nhập email" required="" name="email">
+			<input type="password" class="ggg" name="admin_password" placeholder="Nhập password" required="" name="password">
 			<span><input type="checkbox" />Nhớ đăng nhập</span>
 			<h6><a href="#">Quên mật khẩu?</a></h6>
 				<div class="clearfix"></div>
 				<input type="submit" value="Đăng nhập" name="login">
 		</form>
-		@if (count($errors) >0)
-			<ul>
-				@foreach($errors->all() as $error)
-					<li class="text-danger"> {{ $error }}</li>
-				@endforeach
-			</ul>
-		@endif
-
-		@if (session('status'))
-			<ul>
-				<li class="text-danger"> {{ session('status') }}</li>
-			</ul>
-		@endif
+		
 		<div >
 			<a href="{{url('/redirect')}}" >Login with Facebook</a>
 		</div>

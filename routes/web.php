@@ -24,41 +24,62 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('home.dashboard');
 });
-
+//Khách hàng
 Route::get('/them-khach-hang', function () {
     return view('quanlykhachhang.themkhachhang');
 });
+Route::post('/luu-khach-hang', 'KhachHangController@LuuKhachHang')->name('LuuKhachHang');
+Route::get('/danh-sach-khach-hang', 'KhachHangController@DanhSachKhachHang')->name('DanhSachKhachHang');
+Route::post('/xoa-khach-hang/{id}', 'KhachHangController@XoaKhachHang')->name('XoaKhachHang');
+Route::get('/sua-khach-hang/{id}', 'KhachHangController@SuaKhachHang')->name('SuaKhachHang');
+Route::post('/cap-nhat-khach-hang/{id}', 'KhachHangController@CapNhatKhachHang')->name('CapNhatKhachHang');
 
-Route::get('/danh-sach-khach-hang', function () {
-    return view('quanlykhachhang.danhsachkhachhang');
-});
-
+//Nhà cung cấp
 Route::get('/them-nha-cung-cap', function () {
     return view('quanlynhacungcap.themnhacungcap');
 });
+Route::post('/luu-nha-cung-cap', 'NhaCungCapController@LuuNhaCungCap')->name('LuuNhaCungCap');
+Route::get('/danh-sach-nha-cung-cap', 'NhaCungCapController@DanhSachNhaCungCap')->name('DanhSachNhaCungCap');
+Route::post('/xoa-nha-cung-cap/{id}', 'NhaCungCapController@XoaNhaCungCap')->name('XoaNhaCungCap');
+Route::get('/sua-nha-cung-cap/{id}', 'NhaCungCapController@SuaNhaCungCap')->name('SuaNhaCungCap');
+Route::post('/cap-nhat-nha-cung-cap/{id}', 'NhaCungCapController@CapNhatNhaCungCap')->name('CapNhatNhaCungCap');
 
-Route::get('/danh-sach-nha-cung-cap', function () {
-    return view('quanlynhacungcap.danhsachnhacungcap');
-});
-
+//Nhân Viên
 Route::get('/them-nhan-vien', function () {
     return view('quanlynhanvien.themnhanvien');
 });
+Route::post('/luu-nhan-vien', 'NhanVienController@LuuNhanVien')->name('LuuNhanVien');
+Route::get('/danh-sach-nhan-vien', 'NhanVienController@DanhSachNhanVien')->name('DanhSachNhanVien');
+Route::post('/xoa-nhan-vien/{id}', 'NhanVienController@XoaNhaCungCap')->name('XoaNhanVien');
+Route::get('/sua-nhan-vien/{id}', 'NhanVienController@SuaNhaCungCap')->name('SuaNhanVien');
+Route::post('/cap-nhat-nhan-vien/{id}', 'NhanVienController@CapNhatNhaCungCap')->name('CapNhatNhanVien');
 
-Route::get('/danh-sach-nhan-vien', function () {
-    return view('quanlynhanvien.danhsachnhanvien');
+//Tỷ giá sản phẩm
+Route::get('/them-danh-muc', function () {
+    return view('quanlydanhmuc.themdanhmuc');
 });
+Route::post('/luu-danh-muc', 'DanhMucController@LuuDanhMuc')->name('LuuDanhMuc');
+Route::get('/danh-sach-danh-muc', 'DanhMucController@DanhSachDanhMuc')->name('DanhSachDanhMuc');
+Route::post('/xoa-danh-muc/{id}', 'DanhMucController@XoaDanhMuc')->name('XoaDanhMuc');
+Route::get('/sua-danh-muc/{id}', 'DanhMucController@SuaDanhMuc')->name('SuaDanhMuc');
+Route::post('/cap-nhat-danh-muc/{id}', 'DanhMucController@CapNhatDanhMuc')->name('CapNhatDanhMuc');
+Route::get('/lich-su-bien-dong-gia/{id}', 'DanhMucController@LichSuBienDongGia')->name('LichSuBienDongGia');
 
+
+//Sản phẩm
 Route::get('/them-san-pham', function () {
     return view('quanlysanpham.themsanpham');
 });
-
-Route::get('/danh-sach-san-pham', function () {
-    return view('quanlysanpham.danhsachsanpham');
-});
+Route::post('/luu-san-pham', 'SanPhamController@LuuSanPham')->name('LuuSanPham');
+Route::get('/danh-sach-san-pham', 'SanPhamController@DanhSachSanPham')->name('DanhSachSanPham');
+Route::post('/xoa-san-pham/{id}', 'SanPhamController@XoaSanPham')->name('XoaSanPham');
+Route::get('/sua-san-pham/{id}', 'SanPhamController@SuaSanPham')->name('SuaSanPham');
+Route::post('/cap-nhat-san-pham/{id}', 'SanPhamController@CapNhatSanPham')->name('CapNhatSanPham');
 
 Route::get('/lap-phieu-mua-hang', function () {
     return view('quanlynhacungcap.danhsachnhacungcap');
 });
+//login
+Route::get('/dang-nhap', 'LoginController@Login');
 
 
