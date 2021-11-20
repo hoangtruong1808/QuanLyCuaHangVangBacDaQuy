@@ -2,8 +2,7 @@
 
 namespace App\Exports;
 
-use App\PhysicalProperty;
-use App\PhysicalGroup;
+use App\InformationAssets;
 use Illuminate\Contracts\Support\Responsable;
 use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
@@ -19,7 +18,7 @@ use Maatwebsite\Excel\Events\AfterSheet;
 use Maatwebsite\Excel\Concerns\WithColumnWidths;
 use DB;
 
-class ExportPhysicalProperty implements FromView, ShouldAutoSize, WithEvents, WithColumnWidths
+class ExportsInformationAssets implements FromView, ShouldAutoSize, WithEvents, WithColumnWidths
 {
     use Exportable;
     /**
@@ -27,43 +26,30 @@ class ExportPhysicalProperty implements FromView, ShouldAutoSize, WithEvents, Wi
     */
     public function view() : View
     {
-        return view('admin.reports.reports_excel_physical_property', [
-            'physical_property' => DB::table('tbl_physical_property')
-                                        ->select('tbl_physical_group.physical_name as physical_group_name', 
-                                                    'tbl_physical_property.physical_name as physical_name',
-                                                    'tbl_physical_property.physical_id as physical_id', 'physical_mac_ip_address',
-                                                    'tbl_department.department_name as department_name', 'user',
-                                                    'tbl_business_process.bproc_name as bproc_name',
-                                                    'tbl_owner.owner_owner as owner_owner', 'physical_information_security_zone',
-                                                    'c1.pchar_evaluate as pchar_evaluate1', 'physical_puspose', 'physical_type_info',
-                                                    'c2.pchar_evaluate as pchar_evaluate2',
-                                                    'c3.pchar_evaluate as pchar_evaluate3', 'physical_level_importance',
-                                                    'tbl_location.lct_location as lct_location',
-                                                    'tbl_status.status_name as status_name', 'physical_allowed_bring_outside',
-                                                    'tbl_rangeusable.range_usable as range_usable', 'physical_repair_history', 'physical_description',
-                                                    'tbl_operating_system.os_name as os_name', 'physical_os_lisence', 'physical_previous_user',
-                                                    'tbl_antivirus.atv_name as atv_name', 'physical_antivirus_lisence', 'physical_network', 'physical_price',
-                                                    'tbl_backup.backup_frequency as backup_frequency', 'physical_server_backup', 'physical_purchase_date',
-                                                    'tbl_maintains.maintains_frequency as maintains_frequency', 'physical_serial_no', 'physical_config'
-                                                )
-                                        ->join('tbl_physical_group', 'tbl_physical_property.physical_group', '=', 'tbl_physical_group.physical_id')
-                                        ->join('tbl_department', 'tbl_physical_property.physical_department', '=', 'tbl_department.department_id')
-                                        ->join('tbl_business_process', 'tbl_physical_property.physical_business_process', '=', 'tbl_business_process.bproc_id')
-                                        ->join('tbl_owner', 'tbl_physical_property.physical_property_ownership', '=', 'tbl_owner.owner_id')
-                                        ->join('tbl_property_characteristics as c1', 'tbl_physical_property.physical_confidentiality', '=', 'c1.pchar_id')
-                                        ->join('tbl_property_characteristics as c2', 'tbl_physical_property.physical_integrity', '=', 'c2.pchar_id')
-                                        ->join('tbl_property_characteristics as c3', 'tbl_physical_property.physical_availability', '=', 'c3.pchar_id')
-                                        ->join('tbl_location', 'tbl_physical_property.physical_location', '=', 'tbl_location.lct_id')
-                                        ->join('tbl_status', 'tbl_physical_property.physical_status', '=', 'tbl_status.status_id')
-                                        ->join('tbl_rangeusable', 'tbl_physical_property.physical_scope_of_use', '=', 'tbl_rangeusable.range_id')
-                                        ->join('tbl_operating_system', 'tbl_physical_property.physical_os_type', '=', 'tbl_operating_system.os_id')
-                                        ->join('tbl_antivirus', 'tbl_physical_property.physical_antivirus_type', '=', 'tbl_antivirus.atv_id')
-                                        ->join('tbl_backup', 'tbl_physical_property.physical_schedual_backup', '=', 'tbl_backup.backup_id')
-                                        ->join('tbl_maintains', 'tbl_physical_property.physical_maintains', '=', 'tbl_maintains.maintains_id')
-                                        ->get(),
-        ]);
+        $data = DB::table('tbl_information_assets')
+                ->leftJoin('tbl_information_group', 'tbl_information_assets.information_group', '=', 'tbl_information_group.information_id')
+                ->leftJoin('tbl_form', 'tbl_information_assets.existing', '=', 'tbl_form.form_id')
+                ->leftJoin('tbl_security', 'tbl_information_assets.security_level', '=', 'tbl_security.scr_id')
+                ->leftJoin('tbl_department', 'tbl_information_assets.department', '=', 'tbl_department.department_id')
+                ->leftJoin('tbl_business_process', 'tbl_information_assets.business_process', '=', 'tbl_business_process.bproc_id')
+                ->leftJoin('tbl_property_characteristics as c1', 'tbl_information_assets.confidentiality', '=', 'c1.pchar_id')
+                ->leftJoin('tbl_property_characteristics as c2', 'tbl_information_assets.integrity', '=', 'c2.pchar_id')
+                ->leftJoin('tbl_property_characteristics as c3', 'tbl_information_assets.availability', '=', 'c3.pchar_id')
+                ->leftJoin('tbl_informationplace', 'tbl_information_assets.information_place', '=', 'tbl_informationplace.place_id')
+                ->leftJoin('tbl_spot', 'tbl_information_assets.spot', '=', 'tbl_spot.spot_id')
+                ->leftJoin('tbl_owner', 'tbl_information_assets.property_ownership', '=', 'tbl_owner.owner_id')
+                ->select('tbl_information_assets.*', 'tbl_information_group.information_name', 'tbl_form.form_form', 'tbl_department.department_name',
+                'tbl_business_process.bproc_name', 'c1.pchar_evaluate as confidentiality_evaluate', 'c2.pchar_evaluate as integrity_evaluate', 
+                'c3.pchar_evaluate as availability_evaluate', 'tbl_informationplace.place_place', 'tbl_spot.spot_spot', 'tbl_owner.owner_owner',
+                'tbl_security.scr_type')
+                ->where('tbl_information_assets.status', '=', '1')
+                ->get();
+        return view('admin.reports.reports_excel_information_assets')
+                ->with([
+                    'information_assets'=>$data,
+                    'inventory'=>DB::table('tbl_inventory')->where('inventory_assets_type','Tài sản thông tin')->orderBy('inventory_id', 'desc')->first(),
+                ]);
     }
-
 
     public function registerEvents(): array
     {
@@ -281,7 +267,7 @@ class ExportPhysicalProperty implements FromView, ShouldAutoSize, WithEvents, Wi
                     ]
                 ]);
 
-                $event->sheet->getStyle('A7:AI7')->applyFromArray([
+                $event->sheet->getStyle('A7:Q7')->applyFromArray([
                     'font' => [
                         'bold' => true, 
                         'size' => 10,
@@ -300,7 +286,7 @@ class ExportPhysicalProperty implements FromView, ShouldAutoSize, WithEvents, Wi
                         ],
                     ],
                 ]);
-                $event->sheet->getStyle('A8:AI8')->applyFromArray([
+                $event->sheet->getStyle('A8:Q8')->applyFromArray([
                     'font' => [
                         'bold' => true, 
                         'size' => 10,
@@ -335,10 +321,19 @@ class ExportPhysicalProperty implements FromView, ShouldAutoSize, WithEvents, Wi
                 $event->sheet->getStyle('E7:E8')->applyFromArray([
                     'alignment' => ['vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,],
                 ]);
+                $event->sheet->getStyle('F7:F8')->applyFromArray([
+                    'alignment' => ['vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,],
+                ]);
+                $event->sheet->getStyle('G7:G8')->applyFromArray([
+                    'alignment' => ['vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,],
+                ]);
                 $event->sheet->getStyle('H7:H8')->applyFromArray([
                     'alignment' => ['vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,],
                 ]);
                 $event->sheet->getStyle('I7:I8')->applyFromArray([
+                    'alignment' => ['vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,],
+                ]);
+                $event->sheet->getStyle('J7:J8')->applyFromArray([
                     'alignment' => ['vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,],
                 ]);
                 $event->sheet->getStyle('M7:M8')->applyFromArray([
@@ -356,43 +351,6 @@ class ExportPhysicalProperty implements FromView, ShouldAutoSize, WithEvents, Wi
                 $event->sheet->getStyle('Q7:Q8')->applyFromArray([
                     'alignment' => ['vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,],
                 ]);
-                $event->sheet->getStyle('R7:R8')->applyFromArray([
-                    'alignment' => ['vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,],
-                ]);
-                $event->sheet->getStyle('S7:S8')->applyFromArray([
-                    'alignment' => ['vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,],
-                ]);
-                $event->sheet->getStyle('T7:T8')->applyFromArray([
-                    'alignment' => ['vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,],
-                ]);
-                $event->sheet->getStyle('Y7:Y8')->applyFromArray([
-                    'alignment' => ['vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,],
-                ]);
-                $event->sheet->getStyle('AB7:AB8')->applyFromArray([
-                    'alignment' => ['vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,],
-                ]);
-                $event->sheet->getStyle('AC7:AC8')->applyFromArray([
-                    'alignment' => ['vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,],
-                ]);
-                $event->sheet->getStyle('AD7:AD8')->applyFromArray([
-                    'alignment' => ['vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,],
-                ]);
-                $event->sheet->getStyle('AE7:AE8')->applyFromArray([
-                    'alignment' => ['vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,],
-                ]);
-                $event->sheet->getStyle('AF7:AF8')->applyFromArray([
-                    'alignment' => ['vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,],
-                ]);
-
-                $event->sheet->getStyle('AG7:AG8')->applyFromArray([
-                    'alignment' => ['vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,],
-                ]);
-                $event->sheet->getStyle('AH7:AH8')->applyFromArray([
-                    'alignment' => ['vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,],
-                ]);
-                $event->sheet->getStyle('AI7:AI8')->applyFromArray([
-                    'alignment' => ['vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,],
-                ]);
                 $event->sheet->getStyle('7:100')->applyFromArray([
                     'alignment' => [
                         'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
@@ -407,8 +365,9 @@ class ExportPhysicalProperty implements FromView, ShouldAutoSize, WithEvents, Wi
     {
         return [
             'A' => 5, 
-            'D' => 15,
-            'H' => 30,         
+            'D' => 30,
+            'H' => 30,
+            'Q' => 30,         
         ];
     }
 }

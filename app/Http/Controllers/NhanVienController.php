@@ -101,18 +101,47 @@ class NhanVienController extends Controller
     public function ChiTietNhanVien($id)
     {
         $nhanvien = DB::table('tbl_nhanvien')
-        ->where('ID', $id)
+        ->where('tbl_nhanvien.ID', $id)
         ->first();
+        $luong = DB::table('tbl_luong')
+        ->where('NhanVienID', $id)
+        ->orderBy('Thang', 'DESC')
+        ->get();
         return view('quanlynhanvien.chitietnhanvien')
             ->with([
                 'data'=>$nhanvien,
+                'luong'=>$luong,
         ]);
     }
     public function DiemDanhNhanVien()
     {
+        $abc = DB::table('tbl_nhanvien')->where('TrangThai', 1)->get();
+        foreach($abc as $value)
+        {
+            if (DB::table('tbl_diemdanh')->where('NhanvienID',$value->ID)->where('Ngay',date('Y-m-d'))->exists())
+            {
+                continue;
+            }
+            else 
+            {
+                DB::table('tbl_diemdanh')->insert([
+                    'NhanvienID'=>$value->ID,
+                    'CaSang'=>0,
+                    'CaChieu'=>0,
+                    'CaToi'=>0,
+                    'Ngay'=>date('Y-m-d'),
+                    'Thang'=>date('m'),
+                ]);
+            }
+        }
         $nhanvien = DB::table('tbl_nhanvien')
-                ->where('TrangThai','1')
-                ->get();
+                ->join('tbl_diemdanh','tbl_nhanvien.ID','=','tbl_diemdanh.NhanVienID')
+                ->where('tbl_nhanvien.TrangThai','1')
+                ->where('tbl_diemdanh.Ngay', date('Y-m-d'))
+                ->select('tbl_nhanvien.*', 'tbl_diemdanh.CaSang', 'tbl_diemdanh.CaChieu', 'tbl_diemdanh.CaToi')
+                ->get(); 
+
+        
         return view('quanlynhanvien.diemdanhnhanvien')
             ->with([
                 'nhanvien'=>$nhanvien,
@@ -163,7 +192,7 @@ class NhanVienController extends Controller
         //add table tính lương
         if (DB::table('tbl_luong')->where('NhanvienID',$id)->where('Thang',date('m'))->exists())
         {
-            DB::table('tbl_luong')->where('NhanvienID',$id)->update([
+            DB::table('tbl_luong')->where('NhanvienID',$id)->where('Thang',date('m'))->update([
                 'SoCa'=>$TongSoCa,
                 'TongLuong'=>$TongLuong,
             ]);

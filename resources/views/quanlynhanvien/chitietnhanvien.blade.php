@@ -56,3 +56,37 @@ Chi tiết nhân viên
     
 @endsection
 
+@section('content_detail')
+<div class="col-sm-2">
+</div>
+<div class="stats-last-agile margin-box col-sm-8">
+    <table class="table stats-table tbl-detail">
+        <thead>
+            <tr>
+                <th colspan='6' style="text-align: center; font-size: 18px; color:#696969">Bảng lương nhân viên</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th style="text-align:center">STT</th>
+                <th style="text-align:center">Họ tên</th>
+                <th style="text-align:center">Tháng</th>
+                <th style="text-align:center">Số ca làm việc</th>
+                <th style="text-align:center">Tổng lương</td>
+            </tr>
+            <?php $stt=1 ?>
+            @foreach($luong as $value)
+            <tr>
+                <th style="text-align:center">{{ $stt++ }}</th>
+                <th style="text-align:center">{{ $data->HoTen }}</th>
+                <th style="text-align:center">{{ $value->Thang }}</th>
+                <th style="text-align:center">{{ $value->SoCa }}</th>
+                <th style="text-align:center">{{ number_format($value->TongLuong)  }} VNĐ</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
+<div class="col-sm-2">
+</div>
+@endsection

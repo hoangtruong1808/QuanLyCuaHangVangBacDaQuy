@@ -46,11 +46,11 @@
         @csrf()
         <tr>          
             <td style="color:black">{{$stt++}}</td>
-            <td style="color:black">{{$value->HoTen}}</td>
+            <td style="color:black"><a href="{{ route('ChiTietNhanVien',['id'=>$value->ID]) }}">{{$value->HoTen}}</a></td>
             <td style="color:black">{{$value->ChucVu}}</td>
-            <td style="color:black"><input type="checkbox" value="casang" class="casang{{$value->ID}}" checked ></td>
-            <td style="color:black"><input type="checkbox" value="cachieu" class="cachieu{{$value->ID}}"></td>
-            <td style="color:black"><input type="checkbox"  value="catoi" class="catoi{{$value->ID}}"></td>
+            <td style="color:black"><input type="checkbox" value="casang" class="casang{{$value->ID}}" {{ ($value->CaSang==1)?'checked':'' }}></td>
+            <td style="color:black"><input type="checkbox" value="cachieu" class="cachieu{{$value->ID}}"{{ ($value->CaChieu==1)?'checked':'' }}></td>
+            <td style="color:black"><input type="checkbox"  value="catoi" class="catoi{{$value->ID}}" {{ ($value->CaToi==1)?'checked':'' }}></td>
             <td>
                 <button type="submit" class="btn btn-warning btn-edit diem-danh-nhan-vien{{$value->ID}}" data-id='{{$value->ID}}'>Điểm danh</button>   
             </td>

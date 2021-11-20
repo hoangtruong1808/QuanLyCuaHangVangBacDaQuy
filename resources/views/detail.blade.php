@@ -99,9 +99,7 @@
 		</table>	
 	</div>
 <div>
-	<div class="col-md-7">
-		@yield('content_detail_asset')
-	</div>
+		@yield('content_detail')
 	<div class="clearfix"> </div>
 </div>
 

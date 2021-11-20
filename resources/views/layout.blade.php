@@ -1,7 +1,7 @@
 
 <!DOCTYPE html>
 <head>
-<title>Dashboard</title>
+<title>Cửa hàng vàng, bạc, đá quý GOLD</title>
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -47,7 +47,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <header class="header fixed-top clearfix">
 <!--logo start-->
 <div class="brand">
-    <a href="index.html" class="logo">Admin
+    <a href="index.html" class="logo">GOLD
     </a>
     <div class="sidebar-toggle-box">
         <div class="fa fa-bars"></div>
@@ -138,9 +138,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </li>
 
                 <li class="sub-menu">
-                    <a href="">
+                    <a href="{{ URL::to('lap-phieu-mua-hang') }}">
                         <i class="fa fa-book"></i>
-                        <span>Lập phiếu mua hàng </span>
+                        <span>Lập phiếu mua hàng</span>
                     </a>
                 </li>
 				<li class="sub-menu">
@@ -276,3 +276,4 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- //calendar -->
 </body>
 </html>
+

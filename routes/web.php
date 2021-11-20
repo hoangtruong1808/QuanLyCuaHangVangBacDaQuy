@@ -86,4 +86,7 @@ Route::get('/lap-phieu-mua-hang', function () {
 //login
 Route::get('/dang-nhap', 'LoginController@Login');
 
-
+//Phiếu mua hàng
+Route::get('/lap-phieu-mua-hang', 'PhieuMuaHangController@LapPhieuMuaHang')->name('LapPhieuMuaHang');
+Route::post('/luu-phieu-mua-hang', 'PhieuMuaHangController@LuuPhieuMuaHang')->name('LuuPhieuMuaHang');
+Route::get('/in-phieu-mua-hang/{id}', 'PhieuMuaHangController@InPhieuMuaHang')->name('InPhieuMuaHang');
