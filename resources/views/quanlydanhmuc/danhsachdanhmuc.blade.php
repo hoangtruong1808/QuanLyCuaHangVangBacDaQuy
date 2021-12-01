@@ -18,17 +18,29 @@
         $stt=1;
     ?>
     <header class="panel-heading">
-        <div class="col-sm-11">
-            Danh sách danh mục và tỷ giá sản phẩm
-        </div>
         <div class="col-sm-1">
             <a href="{{ URL::to('them-danh-muc') }}" class="btn btn-danger"><i class="fa fa-plus" aria-hidden="true"></i> Thêm</a>
+        </div>
+        <div class="col-sm-2"></div>
+        <div class="col-sm-6">
+        Danh sách danh mục và tỷ giá sản phẩm
+        </div>
+        <div class="col-sm-3">
+            <form action="{{ route('TimKiemDanhMuc') }}" method="post">
+                <div class="input-group">
+                    @csrf()
+                    <input type="text" class="input-sm form-control" name="key" style="margin-top:14px">
+                    <span class="input-group-btn">
+                        <button class="btn btn-sm btn-default" type="submit">Tìm</button>
+                    </span>  
+                </div>
+            </form>
         </div>
     </header>
     <?php $stt = 1; ?>
     <div class="table-agile-info">
         <div class="table-responsive">
-            <table class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+            <table id="example" class="table table-striped table-bordered table-sm"  cellspacing="0">
                 <thead>
                 <tr>
                     <th style="color:black">STT</th>
@@ -52,7 +64,7 @@
                     <td style="color:black">{{$value->MaVach}}</td>
                     <td style="color:black">{{number_format($value->GiaNhap)}} VNĐ</td>
                     <td style="color:black">{{number_format($value->GiaBan)}} VNĐ</td>
-                    <td style="color:black">{{($value->TinhTrang==1) ? 'Còn hàng' : 'Hết hàng'}}</td>
+                    <td style="color:black">{{($value->TinhTrang==1) ? 'Sử dụng' : 'Không sử dụng'}}</td>
                     <td style="color:black"><a href="{{ route('SuaDanhMuc',['id'=>$value->ID]) }}"><i style="color:green" class="fas fa-edit"></i></a></td>
                     <td style="color:black">
                         <i class="fa fa-times text-danger text"  data-toggle="modal" data-target="#delete{{$value->ID}}"></i>

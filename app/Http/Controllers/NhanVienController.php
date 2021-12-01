@@ -39,6 +39,22 @@ class NhanVienController extends Controller
                 'nhanvien'=>$nhanvien,
             ]);
     }
+    public function TimKiemNhanVien(Request $request)
+    {
+        $nhanvien = DB::table('tbl_nhanvien')
+                    ->where('TrangThai',1)
+                    ->where('HoTen', 'like', '%' . $request->key . '%')
+                    ->orWhere('CMND', 'like', '%' . $request->key . '%')
+                    ->orWhere('ChucVu', 'like', '%' . $request->key . '%')
+                    ->orWhere('DiaChi', 'like', '%' . $request->key . '%')
+                    ->orWhere('DienThoai', 'like', '%' . $request->key . '%')
+                    ->get();
+
+        return view('quanlynhanvien.danhsachnhanvien')
+            ->with([
+                'nhanvien'=>$nhanvien,
+            ]);
+    }
     public function XoaNhanVien($id)
     {
         DB::table('tbl_nhanvien')

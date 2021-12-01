@@ -24,7 +24,23 @@ class NhaCungCapController extends Controller
     }
     public function DanhSachNhaCungCap()
     {
-        $nhacungcap = DB::table('tbl_nhacungcap')->get();
+        $nhacungcap = DB::table('tbl_nhacungcap')
+                ->where('TrangThai', 1)
+                ->get();
+        return view('quanlynhacungcap.danhsachnhacungcap')
+            ->with([
+                'nhacungcap'=>$nhacungcap,
+            ]);
+    }
+    public function TimKiemNhaCungCap(Request $request)
+    {
+        $nhacungcap = DB::table('tbl_nhacungcap')
+                    ->where('TrangThai', 1)
+                    ->where([['Ten', 'like', '%' . $request->key . '%'], ['TrangThai', 1]])
+                    ->orWhere('DienThoai', 'like', '%' . $request->key . '%')
+                    ->orWhere('Gmail', 'like', '%' . $request->key . '%')
+                    ->get();
+
         return view('quanlynhacungcap.danhsachnhacungcap')
             ->with([
                 'nhacungcap'=>$nhacungcap,
@@ -34,7 +50,9 @@ class NhaCungCapController extends Controller
     {
         DB::table('tbl_nhacungcap')
                 ->where('ID', $id)
-                ->delete();
+                ->update([
+                    'TrangThai'=>0,
+                ]);
         Session::flash('message','Xóa nhà cung cấp thành công!');
     }
     public function SuaNhaCungCap($id)

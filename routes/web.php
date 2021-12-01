@@ -34,6 +34,7 @@ Route::post('/xoa-khach-hang/{id}', 'KhachHangController@XoaKhachHang')->name('X
 Route::get('/sua-khach-hang/{id}', 'KhachHangController@SuaKhachHang')->name('SuaKhachHang');
 Route::get('/chi-tiet-khach-hang/{id}', 'KhachHangController@ChiTietKhachHang')->name('ChiTietKhachHang');
 Route::post('/cap-nhat-khach-hang/{id}', 'KhachHangController@CapNhatKhachHang')->name('CapNhatKhachHang');
+Route::post('/danh-sach-khach-hang', 'KhachHangController@TimKiemKhachHang')->name('TimKiemKhachHang');
 
 //Nhà cung cấp
 Route::get('/them-nha-cung-cap', function () {
@@ -45,6 +46,7 @@ Route::post('/xoa-nha-cung-cap/{id}', 'NhaCungCapController@XoaNhaCungCap')->nam
 Route::get('/sua-nha-cung-cap/{id}', 'NhaCungCapController@SuaNhaCungCap')->name('SuaNhaCungCap');
 Route::get('/chi-tiet-nha-cung-cap{id}', 'NhaCungCapController@ChiTietNhaCungCap')->name('ChiTietNhaCungCap');
 Route::post('/cap-nhat-nha-cung-cap/{id}', 'NhaCungCapController@CapNhatNhaCungCap')->name('CapNhatNhaCungCap');
+Route::post('/danh-sach-nha-cung-cap', 'NhaCungCapController@TimKiemNhaCungCap')->name('TimKiemNhaCungCap');
 
 //Nhân Viên
 Route::get('/them-nhan-vien', function () {
@@ -58,6 +60,7 @@ Route::post('/cap-nhat-nhan-vien/{id}', 'NhanVienController@CapNhatNhanVien')->n
 Route::get('/chi-tiet-nhan-vien/{id}', 'NhanVienController@ChiTietNhanVien')->name('ChiTietNhanVien');
 Route::get('/diem-danh-nhan-vien', 'NhanVienController@DiemDanhNhanVien')->name('DiemDanhNhanVien');
 Route::post('/luu-diem-danh/{id}', 'NhanVienController@LuuDiemDanh')->name('LuuDiemDanh');
+Route::post('/danh-sach-nhan-vien', 'NhanVienController@TimKiemNhanVien')->name('TimKiemNhanVien');
 //Tỷ giá sản phẩm
 Route::get('/them-danh-muc', function () {
     return view('quanlydanhmuc.themdanhmuc');
@@ -68,18 +71,16 @@ Route::post('/xoa-danh-muc/{id}', 'DanhMucController@XoaDanhMuc')->name('XoaDanh
 Route::get('/sua-danh-muc/{id}', 'DanhMucController@SuaDanhMuc')->name('SuaDanhMuc');
 Route::post('/cap-nhat-danh-muc/{id}', 'DanhMucController@CapNhatDanhMuc')->name('CapNhatDanhMuc');
 Route::get('/lich-su-bien-dong-gia/{id}', 'DanhMucController@LichSuBienDongGia')->name('LichSuBienDongGia');
-
+Route::post('/danh-sach-danh-muc', 'DanhMucController@TimKiemDanhMuc')->name('TimKiemDanhMuc');
 
 //Sản phẩm
-Route::get('/them-san-pham', function () {
-    return view('quanlysanpham.themsanpham');
-});
+Route::get('/them-san-pham', 'SanPhamController@ThemSanPham')->name('ThemSanPham');
 Route::post('/luu-san-pham', 'SanPhamController@LuuSanPham')->name('LuuSanPham');
 Route::get('/danh-sach-san-pham', 'SanPhamController@DanhSachSanPham')->name('DanhSachSanPham');
-Route::post('/xoa-san-pham/{id}', 'SanPhamController@XoaSanPham')->name('XoaSanPham');
+Route::get('/chi-tiet-san-pham/{id}', 'SanPhamController@ChiTietSanPham')->name('ChiTietSanPham');
 Route::get('/sua-san-pham/{id}', 'SanPhamController@SuaSanPham')->name('SuaSanPham');
 Route::post('/cap-nhat-san-pham/{id}', 'SanPhamController@CapNhatSanPham')->name('CapNhatSanPham');
-
+Route::post('/danh-sach-san-pham', 'SanPhamController@TimKiemSanPham')->name('TimKiemSanPham');
 Route::get('/lap-phieu-mua-hang', function () {
     return view('quanlynhacungcap.danhsachnhacungcap');
 });
@@ -90,3 +91,18 @@ Route::get('/dang-nhap', 'LoginController@Login');
 Route::get('/lap-phieu-mua-hang', 'PhieuMuaHangController@LapPhieuMuaHang')->name('LapPhieuMuaHang');
 Route::post('/luu-phieu-mua-hang', 'PhieuMuaHangController@LuuPhieuMuaHang')->name('LuuPhieuMuaHang');
 Route::get('/in-phieu-mua-hang/{id}', 'PhieuMuaHangController@InPhieuMuaHang')->name('InPhieuMuaHang');
+
+//Phiếu bán hàng
+Route::get('/lap-phieu-ban-hang', 'PhieuBanHangController@LapPhieuBanHang')->name('LapPhieuBanHang');
+Route::post('/luu-phieu-ban-hang', 'PhieuBanHangController@LuuPhieuBanHang')->name('LuuPhieuBanHang');
+Route::get('/in-phieu-bao-hanh', 'PhieuBanHangController@InPhieuBaoHanh')->name('InPhieuBaoHanh');
+
+//Phiếu nhập hàng
+Route::get('/lap-phieu-nhap-hang', 'PhieuNhapHangController@LapPhieuNhapHang')->name('LapPhieuNhapHang');
+Route::post('/luu-phieu-nhap-hang', 'PhieuNhapHangController@LuuPhieuNhapHang')->name('LuuPhieuNhapHang');
+
+//Báo cáo tồn quỹ
+Route::get('/bao-cao-ton-quy', 'BaoCaoController@BaoCaoTonQuy')->name('BaoCaoTonQuy');
+Route::get('/in-bao-cao-ton-quy', 'BaoCaoController@InBaoCaoTonQuy')->name('InBaoCaoTonQuy');
+
+

@@ -36,6 +36,19 @@ class DanhMucController extends Controller
                 'danhmuc'=>$danhmuc,
             ]);
     }
+    public function TimKiemDanhMuc(Request $request)
+    {
+        $danhmuc = DB::table('tbl_danhmucsanpham')
+                    ->where('Ten', 'like', '%' . $request->key . '%')
+                    ->orWhere('MaVach', 'like', '%' . $request->key . '%')
+                    ->orWhere('Loai', 'like', '%' . $request->key . '%')
+                    ->get();
+
+        return view('quanlydanhmuc.danhsachdanhmuc')
+            ->with([
+                'danhmuc'=>$danhmuc,
+            ]);
+    }
     public function SuaDanhMuc($id)
     {
         $danhmuc = DB::table('tbl_danhmucsanpham')

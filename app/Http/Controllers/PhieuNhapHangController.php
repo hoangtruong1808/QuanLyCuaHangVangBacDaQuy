@@ -6,13 +6,13 @@ use Illuminate\Http\Request;
 use Session;
 use DB;
 use Excel;
-use App\Exports\PhieuMuaHangExport;
+use App\Exports\PhieuNhapHangExport;
 
-class PhieuMuaHangController extends Controller
+class PhieuNhapHangController extends Controller
 {
-    public function LapPhieuMuaHang()
+    public function LapPhieuNhapHang()
     {
-        $khachhang = DB::table('tbl_khachhang')
+        $nhacungcap = DB::table('tbl_nhacungcap')
         ->get();
         $nhanvien = DB::table('tbl_nhanvien')
         ->where('TrangThai',1)
@@ -20,71 +20,60 @@ class PhieuMuaHangController extends Controller
         $danhmuc = DB::table('tbl_danhmucsanpham')
         ->where('TinhTrang',1)
         ->get();
-        return view('quanlyphieu.phieumuahang')
+        return view('quanlyphieu.phieunhaphang')
             ->with([
                 'nhanvien'=>$nhanvien,
-                'khachhang'=>$khachhang,
+                'nhacungcap'=>$nhacungcap,
                 'danhmuc'=>$danhmuc,
             ]);
     }
-    public function LuuPhieuMuaHang(Request $request)
+    public function LuuPhieuNhapHang(Request $request)
     {
         $tonggiatri = 0;
         $sosanpham = $request->sosanpham;
         for ($i = 0; $i < $sosanpham; $i++){
             $tonggiatri += $request->thanhtien[$i];
-        } 
+        }   
+        $PhieuNhapHangID = DB::table('tbl_PhieuNhapHang')->insertGetId([
+            'NhaCungCapID'=>$request->nhacungcap,
+            'NhanVienID'=>$request->nhanvien,
+            'TongGiaTri'=>$tonggiatri,
+        ]); 
         $tonngay = DB::table('tbl_tonquy')->where('Ngay', date('Y-m-d'))->first()->TonCuoiNgay;
         $chingay = DB::table('tbl_tonquy')->where('Ngay', date('Y-m-d'))->first()->Chi;
         DB::table('tbl_tonquy')->where('Ngay', date('Y-m-d'))->update([
             'Chi'=>$chingay+$tonggiatri,
             'TonCuoiNgay'=>$tonngay-$tonggiatri,
         ]);  
-        $PhieuMuaHangID = DB::table('tbl_PhieuMuaHang')->insertGetId([
-            'KhachHangID'=>$request->khachhang,
-            'NhanVienID'=>$request->nhanvien,
-            'TongGiaTri'=>$tonggiatri,
-        ]);
         for ($i = 0; $i < $sosanpham; $i++){
-            DB::table('tbl_chitietphieumuahang')->insert([
-                'PhieuMuaHangID'=>$PhieuMuaHangID,
+            DB::table('tbl_chitietphieunhaphang')->insert([
+                'PhieuNhapHangID'=>$PhieuNhapHangID,
                 'SanPhamID'=>$request->sanpham[$i],
                 'SoLuong'=>$request->soluong[$i],
                 'DonGia'=>$request->dongia[$i],
-                'PhanTram'=>$request->giatri[$i],
                 'ThanhTien'=>$request->thanhtien[$i],
-            ]);  
+            ]); 
             $soluong = DB::table('tbl_sanpham')
-            ->where('Loai', $request->sanpham[$i])
-            ->count();
+                    ->where('Loai', $request->sanpham[$i])
+                    ->count();
             $somavach = $soluong + 1;
             $danhmuc = DB::table('tbl_danhmucsanpham')
                     ->where('ID', $request->sanpham[$i])
                     ->where('TinhTrang','1')
                     ->first();
             $loaimavach = $danhmuc->MaVach;
-            $giaban = $danhmuc->GiaBan * $request->giatri[$i] /100;
+            $giaban = $danhmuc->GiaBan;
             DB::table('tbl_sanpham')->insert([
                 'MaVach'=>$loaimavach.$somavach,
                 'SoLuong'=>$request->soluong[$i],
                 'Loai'=>$request->sanpham[$i],
                 'GiaNhap'=>$request->thanhtien[$i],
                 'GiaBan'=>$giaban,
-                'PhieuMuaHangID'=>$PhieuMuaHangID,
+                'PhieuNhapHangID'=>$PhieuNhapHangID,
                 'TinhTrang'=>1,
-                'GiaTri'=>$request->giatri[$i],
+                'GiaTri'=>100,
             ]);
         }
-        return Excel::download(new PhieuMuaHangExport, 'PhieuMuaHang.xlsx');
-    }
-    public function InPhieuMuaHang($id)
-    {
-        $pdf = \App::make('dompdf.wrapper');
-        $pdf->loadHTML($this->convert($id));
-        return $pdf->stream();
-    }
-    public function convert($id)
-    {
-        return view('quanlydanhmuc.themdanhmuc');
+        return Excel::download(new PhieuNhapHangExport, 'PhieuNhapHang.xlsx');
     }
 }

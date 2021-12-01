@@ -131,31 +131,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </li>
 
                 <li class="sub-menu">
-                    <a href="{{ URL::to('danh-sach-danh-muc') }}">
+                    <a href="{{ URL::to('danh-sach-san-pham') }}">
                         <i class="fa fa-book"></i>
                         <span>Sản phẩm</span>
                     </a>
                 </li>
-
                 <li class="sub-menu">
-                    <a href="{{ URL::to('lap-phieu-mua-hang') }}">
+                    <a href="javascript:;">
                         <i class="fa fa-book"></i>
-                        <span>Lập phiếu mua hàng</span>
+                        <span>Lập phiếu</span>
                     </a>
+                    <ul class="sub">
+                        <li><a href="{{ URL::to('lap-phieu-nhap-hang') }}">Lập phiếu nhập hàng</a></li>
+                        <li><a href="{{ URL::to('lap-phieu-mua-hang') }}">Lập phiếu mua hàng</a></li>
+                        <li><a href="{{ URL::to('lap-phieu-ban-hang') }}">Lập phiếu bán hàng</a></li>
+                    </ul>
                 </li>
-				<li class="sub-menu">
-                    <a href="">
+                <li class="sub-menu">
+                    <a href="{{ URL::to('bao-cao-ton-quy') }}">
                         <i class="fa fa-book"></i>
-                        <span>Lập phiếu bán hàng</span>
+                        <span>Báo cáo tồn quỹ</span>
                     </a>
-                </li>
-				<li class="sub-menu">
-                    <a href="">
-                        <i class="fa fa-book"></i>
-                        <span>Lập phiếu bảo hành</span>
-                    </a>
-                </li>
-				
+                </li>				
             </ul>           
         </div>
         <!-- sidebar menu end-->

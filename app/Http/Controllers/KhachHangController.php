@@ -33,6 +33,20 @@ class KhachHangController extends Controller
                 'khachhang'=>$khachhang,
             ]);
     }
+    public function TimKiemKhachHang(Request $request)
+    {
+        $khachhang = DB::table('tbl_khachhang')
+                    ->where('HoTen', 'like', '%' . $request->key . '%')
+                    ->orWhere('DiaChi', 'like', '%' . $request->key . '%')
+                    ->orWhere('CMND', 'like', '%' . $request->key . '%')
+                    ->orWhere('DienThoai', 'like', '%' . $request->key . '%')
+                    ->get();
+
+        return view('quanlykhachhang.danhsachkhachhang')
+            ->with([
+                'khachhang'=>$khachhang,
+            ]); 
+    }
     public function XoaKhachHang($id)
     {
         DB::table('tbl_khachhang')

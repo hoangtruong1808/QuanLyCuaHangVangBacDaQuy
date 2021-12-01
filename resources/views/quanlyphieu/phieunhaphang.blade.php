@@ -2,7 +2,7 @@
 @section('content')
         <section class="panel">
             <header class="panel-heading">
-                Lập phiếu mua hàng
+                Lập phiếu nhập hàng
             </header>
             <?php
                 $message = Session::get('message');
@@ -13,15 +13,15 @@
                 $stt=1;
             ?>
             <div class="panel-body">
-            <form class="form-horizontal bucket-form" action="{{ route('LuuPhieuMuaHang') }}" method="post">
+            <form class="form-horizontal bucket-form" action="{{ route('LuuPhieuNhapHang') }}" method="post">
                 {{ csrf_field() }}
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Khách hàng:</label>
+                        <label class="col-sm-3 control-label">Nhà cung cấp:</label>
                         <div class="col-sm-6">
-                            <select class="form-control input-lg select2 select2-hidden-accessible area" style="width: 100%;" tabindex="-1" aria-hidden="true" name="khachhang"> 
-                                <option value="" selected disabled hidden>Chọn khách hàng</option>
-                                @foreach($khachhang as $value)
-                                <option value="{{ $value->ID }}">{{$value->HoTen}}</option>
+                            <select class="form-control input-lg select2 select2-hidden-accessible area" style="width: 100%;" tabindex="-1" aria-hidden="true" name="nhacungcap"> 
+                                <option value="" selected disabled hidden>Chọn nhà cung cấp</option>
+                                @foreach($nhacungcap as $value)
+                                <option value="{{ $value->ID }}">{{$value->Ten}}</option>
                                 @endforeach
                             </select> 
                         </div>
@@ -55,7 +55,6 @@
                                 <th>Loại sản phẩm</th>
                                 <th>Số lượng(chỉ)</th>
                                 <th>Đơn giá(VNĐ) / chỉ</th>
-                                <th>Giá trị(%)</th>
                                 <th>Thành tiền</th>
                             </tr>   
                         </thead>
@@ -75,9 +74,6 @@
                                 </th>
                                 <th>
                                     <input type="text" class="form-control" style="width: 150px" name="dongia[]">
-                                </th>
-                                <th>
-                                    <input type="text" class="form-control" style="width: 80px" name="giatri[]">
                                 </th>
                                 <th>
                                     <input type="text" class="form-control" style="width: 150px" name="thanhtien[]">
@@ -101,7 +97,7 @@
                     for(var i=0; i<sosanpham; i++)
                     {
                         $('tbody').append(
-                            '<tr><th><select class="form-control input-lg select2 select2-hidden-accessible area" style="width: 100%;" tabindex="-1" aria-hidden="true" name="sanpham[]"> <option value="" selected disabled hidden>Loại sản phẩm</option>@foreach($danhmuc as $value)<option value="{{ $value->ID }}">{{$value->Ten}}</option>@endforeach   </select></th><th><input type="text" class="form-control" style="width: 80px" name="soluong[]"></th><th><input type="text" class="form-control" style="width: 150px" name="dongia[]"></th><th><input type="text" class="form-control" style="width: 80px" name="giatri[]"></th><th><input type="text" class="form-control" style="width: 150px" name="thanhtien[]"></th></tr>'
+                            '<tr><th><select class="form-control input-lg select2 select2-hidden-accessible area" style="width: 100%;" tabindex="-1" aria-hidden="true" name="sanpham[]"> <option value="" selected disabled hidden>Loại sản phẩm</option>@foreach($danhmuc as $value)<option value="{{ $value->ID }}">{{$value->Ten}}</option>@endforeach   </select></th><th><input type="text" class="form-control" style="width: 80px" name="soluong[]"></th><th><input type="text" class="form-control" style="width: 150px" name="dongia[]"></th><th><input type="text" class="form-control" style="width: 150px" name="thanhtien[]"></th></tr>'
                         );
                     }
                     $('.select2').select2({

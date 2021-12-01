@@ -2,7 +2,7 @@
 
 namespace App\Exports;
 
-use App\PhieuMuaHangModel;
+use App\PhieuNhapHangModel;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Illuminate\Contracts\Support\Responsable;
 use Illuminate\Contracts\View\View;
@@ -18,7 +18,7 @@ use Maatwebsite\Excel\Events\AfterSheet;
 use Maatwebsite\Excel\Concerns\WithColumnWidths;
 use DB;
 
-class PhieuMuaHangExport implements FromView, ShouldAutoSize, WithEvents, WithColumnWidths
+class PhieuNhapHangExport implements FromView, ShouldAutoSize, WithEvents, WithColumnWidths
 {
     use Exportable;
     /**
@@ -26,25 +26,25 @@ class PhieuMuaHangExport implements FromView, ShouldAutoSize, WithEvents, WithCo
     */
     public function view() : View
     {
-        $RowID = DB::table('tbl_phieumuahang')
+        $RowID = DB::table('tbl_phieunhaphang')
                     ->orderBy('ID','DESC')
                     ->first();
         $ID = $RowID->ID;
 
-        $phieumuahang = DB::table('tbl_phieumuahang')
-                        ->join('tbl_khachhang', 'tbl_khachhang.ID', '=', 'tbl_phieumuahang.KhachHangID')
-                        ->join('tbl_nhanvien', 'tbl_nhanvien.ID', '=', 'tbl_phieumuahang.NhanVienID')
-                        ->select('tbl_phieumuahang.*', 'tbl_khachhang.HoTen as khachhang', 'tbl_khachhang.DiaChi as diachi', 'tbl_khachhang.DienThoai as sodienthoai','tbl_nhanvien.HoTen as nhanvien')
-                        ->where('tbl_phieumuahang.ID', $ID)
+        $phieunhaphang = DB::table('tbl_phieunhaphang')
+                        ->join('tbl_nhacungcap', 'tbl_nhacungcap.ID', '=', 'tbl_phieunhaphang.NhaCungCapID')
+                        ->join('tbl_nhanvien', 'tbl_nhanvien.ID', '=', 'tbl_phieunhaphang.NhanVienID')
+                        ->select('tbl_phieunhaphang.*', 'tbl_nhacungcap.Ten as nhacungcap', 'tbl_nhacungcap.DienThoai as sodienthoai','tbl_nhanvien.HoTen as nhanvien')
+                        ->where('tbl_phieunhaphang.ID', $ID)
                         ->first();
-        $chitietphieumuahang = DB::table('tbl_chitietphieumuahang')
-                        ->join('tbl_danhmucsanpham', 'tbl_danhmucsanpham.ID', '=', 'tbl_chitietphieumuahang.SanPhamID')
-                        ->where('tbl_chitietphieumuahang.PhieuMuaHangID', $ID)
+        $chitietphieunhaphang = DB::table('tbl_chitietphieunhaphang')
+                        ->join('tbl_danhmucsanpham', 'tbl_danhmucsanpham.ID', '=', 'tbl_chitietphieunhaphang.SanPhamID')
+                        ->where('tbl_chitietphieunhaphang.PhieuNhapHangID', $ID)
                         ->get();
-        return view('excel.phieumuahang')
+        return view('excel.phieunhaphang')
                 ->with([
-                    'phieumuahang'=>$phieumuahang,
-                    'chitietphieumuahang'=>$chitietphieumuahang,
+                    'phieunhaphang'=>$phieunhaphang,
+                    'chitietphieunhaphang'=>$chitietphieunhaphang,
                 ]);
     }
 
@@ -193,7 +193,7 @@ class PhieuMuaHangExport implements FromView, ShouldAutoSize, WithEvents, WithCo
                 $event->sheet->getDelegate()->getRowDimension('1')->setRowHeight(30);
                 $event->sheet->getDelegate()->getRowDimension('4')->setRowHeight(23);
                 $event->sheet->getDelegate()->getRowDimension('8')->setRowHeight(21);
-                $event->sheet->getDelegate()->getRowDimension('9')->setRowHeight(21);
+                $event->sheet->getDelegate()->getRowDimension('9')->setRowHeight(1);
                 $event->sheet->getDelegate()->getRowDimension('10')->setRowHeight(21);
                 $event->sheet->getDelegate()->getRowDimension('12')->setRowHeight(23);
                 $event->sheet->getDelegate()->getRowDimension('13')->setRowHeight(23);
@@ -214,7 +214,7 @@ class PhieuMuaHangExport implements FromView, ShouldAutoSize, WithEvents, WithCo
             'B' => 30,
             'C' => 14,
             'D' => 20,    
-            'E' => 14,   
+            'E' => 1,   
             'F' => 20,  
         ];
     }
