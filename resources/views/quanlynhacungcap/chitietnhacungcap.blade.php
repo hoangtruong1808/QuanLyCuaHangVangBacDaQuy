@@ -39,4 +39,35 @@ Chi tiết nhà cung cấp
     </li>
     
 @endsection
+@section('content_detail')
+    <table class="table stats-table tbl-detail">
+        <thead>
+            <tr>
+                <th colspan='6' style="text-align: center; font-size: 18px; color:#696969">Lịch sử giao dịch</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php $stt=1 ?>
+            <th colspan='6' style="text-align:center">Lịch sử nhập hàng</th>
+            <tr>
+                <th style="text-align:center">STT</th>
+                <th style="text-align:center">Loại sản phẩm</th>
+                <th style="text-align:center">Ngày giao dịch</th>
+                <th style="text-align:center">Số lượng(chỉ)</th>
+                <th style="text-align:center">Đơn giá(VNĐ)</th>   
+                <th style="text-align:center">Thành tiền(VNĐ)</th>
+            </tr>
+            @foreach ($sanphamnhap as $sanphammua)
+            <tr>
+                <td style="text-align:center">{{ $stt++ }}</td>
+                <td style="text-align:center">{{ $sanphammua->LoaiSanPham }}</td>
+                <td style="text-align:center">{{ $sanphammua->NgayLapPhieu }}</td>
+                <td style="text-align:center">{{ $sanphammua->SoLuong}}</td>
+                <td style="text-align:center">{{ number_format($sanphammua->DonGia)}}</td>
+                <td style="text-align:center">{{ number_format($sanphammua->ThanhTien)}}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+@endsection
 

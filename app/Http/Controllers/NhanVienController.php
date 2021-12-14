@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\NhanVienModel;
 use Session;
 use DB;
+use Hash;
 
 class NhanVienController extends Controller
 {
@@ -17,7 +18,7 @@ class NhanVienController extends Controller
         $nhanvien = new NhanVienModel();
         $nhanvien['HoTen'] = $data['hoten'];
         $nhanvien['TaiKhoan'] = $data['taikhoan'];
-        $nhanvien['MatKhau'] = bcrypt($data['matkhau']);
+        $nhanvien['MatKhau'] = $data['matkhau'];
         $nhanvien['CMND'] = $data['CMND'];
         $nhanvien['ChucVu'] = $data['chucvu'];
         $nhanvien['DiaChi'] = $data['diachi'];
@@ -92,7 +93,7 @@ class NhanVienController extends Controller
 
         if ($request->matkhau)
         {
-            $matkhau = bcrypt($request->matkhau);
+            $matkhau = $request->matkhau;
         }
         else {
             $matkhau =  $nhanvien->MatKhau;
@@ -221,5 +222,30 @@ class NhanVienController extends Controller
                 'TongLuong'=>$TongLuong,
             ]);
         }
+    }
+    public function PhanQuyenNhanVien()
+    {
+        $nhanvien = DB::table('tbl_nhanvien')->where('TrangThai', 1)->get();
+        
+        return view('quanlynhanvien.phanquyennhanvien')
+            ->with([
+                'nhanvien'=>$nhanvien,
+            ]);
+    }
+    public function LuuPhanQuyen(Request $request)
+    {
+        $nhanvien = DB::table('tbl_nhanvien')->where('TrangThai', 1)->get();
+        foreach($nhanvien as $value)
+        {
+            $abc = 'phanquyen'.$value->ID;
+            $chucvu = $request->$abc;
+            DB::table('tbl_nhanvien')
+            ->where('ID', $value->ID)
+            ->update([
+                'ChucVu'=>$chucvu,
+            ]);
+        }
+        Session::flash('message','Phân quyền thành công!');
+        return redirect()->route('PhanQuyenNhanVien');
     }
 }

@@ -17,13 +17,19 @@ use App\Events\MessagePosted;
 */
 
 // Frontend
-Route::get('/', function () {
-    return view('home.dashboard');
-});
-
+if( !Session::get('chucvu')==NULL)
+{
+    Route::get('/', function () {
+        return view('home.dashboard');
+    })->name('home');
+}
+else 
+{
+    Route::get('/', 'LoginController@Login')->name('DangNhap');
+}
 Route::get('/home', function () {
     return view('home.dashboard');
-});
+})->name('home');;
 //Khách hàng
 Route::get('/them-khach-hang', function () {
     return view('quanlykhachhang.themkhachhang');
@@ -60,6 +66,8 @@ Route::post('/cap-nhat-nhan-vien/{id}', 'NhanVienController@CapNhatNhanVien')->n
 Route::get('/chi-tiet-nhan-vien/{id}', 'NhanVienController@ChiTietNhanVien')->name('ChiTietNhanVien');
 Route::get('/diem-danh-nhan-vien', 'NhanVienController@DiemDanhNhanVien')->name('DiemDanhNhanVien');
 Route::post('/luu-diem-danh/{id}', 'NhanVienController@LuuDiemDanh')->name('LuuDiemDanh');
+Route::get('/phan-quyen-nhan-vien', 'NhanVienController@PhanQuyenNhanVien')->name('PhanQuyenNhanVien');
+Route::post('/luu-phan-quyen', 'NhanVienController@LuuPhanQuyen')->name('LuuPhanQuyen');
 Route::post('/danh-sach-nhan-vien', 'NhanVienController@TimKiemNhanVien')->name('TimKiemNhanVien');
 //Tỷ giá sản phẩm
 Route::get('/them-danh-muc', function () {
@@ -85,7 +93,9 @@ Route::get('/lap-phieu-mua-hang', function () {
     return view('quanlynhacungcap.danhsachnhacungcap');
 });
 //login
-Route::get('/dang-nhap', 'LoginController@Login');
+Route::get('/dang-nhap', 'LoginController@Login')->name('DangNhap');
+Route::get('/dang-xuat', 'LoginController@Logout')->name('DangXuat');
+Route::post('/dang-nhap', 'LoginController@LoginProcess')->name('LoginProcess');
 
 //Phiếu mua hàng
 Route::get('/lap-phieu-mua-hang', 'PhieuMuaHangController@LapPhieuMuaHang')->name('LapPhieuMuaHang');

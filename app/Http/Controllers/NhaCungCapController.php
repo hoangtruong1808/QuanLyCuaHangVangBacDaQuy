@@ -97,9 +97,16 @@ class NhaCungCapController extends Controller
         $nhacungcap = DB::table('tbl_nhacungcap')
         ->where('ID', $id)
         ->first();
+        $sanphamnhap = DB::table('tbl_chitietphieunhaphang')
+        ->join('tbl_phieunhaphang', 'tbl_chitietphieunhaphang.PhieuNhapHangID', '=', 'tbl_phieunhaphang.ID')
+        ->join('tbl_danhmucsanpham', 'tbl_chitietphieunhaphang.SanPhamID', '=', 'tbl_danhmucsanpham.ID')
+        ->where('tbl_phieunhaphang.NhaCungCapID', $id)
+        ->select('tbl_chitietphieunhaphang.*', 'tbl_phieunhaphang.NgayLapPhieu', 'tbl_danhmucsanpham.ten as LoaiSanPham')
+        ->get();
         return view('quanlynhacungcap.chitietnhacungcap')
             ->with([
                 'data'=>$nhacungcap,
+                'sanphamnhap'=>$sanphamnhap
         ]);
     }
 }

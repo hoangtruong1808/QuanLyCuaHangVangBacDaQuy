@@ -22,7 +22,7 @@
         </div>
         <div class="col-sm-2"></div>
         <div class="col-sm-6">
-        Danh sách nhân viêm
+        Danh sách nhân viên
         </div>
         <div class="col-sm-3">
             <form action="{{ route('TimKiemNhanVien') }}" method="post">
@@ -50,7 +50,6 @@
                     <th style="color:black">Điện thoại</th>
                     <th style="color:black">Sửa</th>
                     <th style="color:black">Xóa</th>
-                    <th style="color:black; width: 80px">Tính lương</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -80,8 +79,7 @@
                                 </div>
                             </div>
                         </div>
-                    </td>
-                    <td style="color:black"><a href=""><i style="color:gold" class="fas fa-file-invoice-dollar"></i></a></td>   
+                    </td>   
                 </tr>
                     @endforeach
                 </tbody>

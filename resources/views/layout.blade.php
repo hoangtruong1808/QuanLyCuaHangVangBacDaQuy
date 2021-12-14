@@ -47,7 +47,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <header class="header fixed-top clearfix">
 <!--logo start-->
 <div class="brand">
-    <a href="index.html" class="logo">GOLD
+    <a href="{{ URL::to('/home') }}" class="logo">GOLD
     </a>
     <div class="sidebar-toggle-box">
         <div class="fa fa-bars"></div>
@@ -69,10 +69,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <img alt="" src="{{asset('public/backend/images/2.png')}}">
                 <span class="username">
 				<?php
+                    session_start();
 					$name = Session::get('admin_name');
 					if($name) {
 						echo $name;
 					}
+
 				?>
 				</span>
                 <b class="caret"></b>
@@ -111,7 +113,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span>Nhà cung cấp</span>
                     </a>
                 </li>
-
+                @if( Session::get('chucvu')=="Quản lý")
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-book"></i>
@@ -120,9 +122,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <ul class="sub">
                         <li><a href="{{ URL::to('danh-sach-nhan-vien') }}">Danh sách nhân viên</a></li>
                         <li><a href="{{ URL::to('diem-danh-nhan-vien') }}">Điểm danh nhân viên</a></li>
+                        <li><a href="{{ URL::to('phan-quyen-nhan-vien') }}">Phân quyền nhân viên</a></li>
                     </ul>
                 </li>
-
+                @endif
                 <li class="sub-menu">
                     <a href="{{ URL::to('danh-sach-danh-muc') }}">
                         <i class="fa fa-book"></i>
@@ -147,12 +150,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li><a href="{{ URL::to('lap-phieu-ban-hang') }}">Lập phiếu bán hàng</a></li>
                     </ul>
                 </li>
+                @if( Session::get('chucvu')=="Quản lý")
                 <li class="sub-menu">
                     <a href="{{ URL::to('bao-cao-ton-quy') }}">
                         <i class="fa fa-book"></i>
                         <span>Báo cáo tồn quỹ</span>
                     </a>
-                </li>				
+                </li>
+                @endif
+                <li class="sub-menu">
+                    <a href="{{ URL::to('dang-xuat') }}">
+                        <i class="fa fa-book"></i>
+                        <span>Đăng xuất</span>
+                    </a>
+                </li>					
             </ul>           
         </div>
         <!-- sidebar menu end-->

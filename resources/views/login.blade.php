@@ -32,19 +32,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			Session::put('message', null);
 		}
 	?>
-		<form action="{{ route('DanhSachKhachHang') }}" method="get">
+		<form action="{{ route('LoginProcess') }}" method="POST">
 			{{ csrf_field() }}
 			<!-- @foreach($errors->all() as $val)
 			<ul>
 				<li>{{$val}}</li>
 			</ul>
 			@endforeach -->
-			<input type="text" class="ggg" name="admin_email" placeholder="Nhập email" required="" name="email">
-			<input type="password" class="ggg" name="admin_password" placeholder="Nhập password" required="" name="password">
+			<input type="text" class="ggg" placeholder="Nhập tài khoản" required="" name="taikhoan">
+			<input type="password" class="ggg" placeholder="Nhập password" required="" name="password">
 			<span><input type="checkbox" />Nhớ đăng nhập</span>
 			<h6><a href="#">Quên mật khẩu?</a></h6>
-				<div class="clearfix"></div>
-				<input type="submit" value="Đăng nhập" name="login">
+			<div class="clearfix"></div>
+			<input type="submit" value="Đăng nhập" name="login">
 		</form>
 		
 		<div >

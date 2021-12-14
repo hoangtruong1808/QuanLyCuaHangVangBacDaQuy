@@ -33,8 +33,9 @@
         </div>
         <div class="col-sm-3 m-b-xs">
             <select class="input-sm form-control w-sm inline v-middle">
-                <option value="0">Tháng 10-2021</option>
+                <option value="0">Tháng 12-2021</option>
                 <option value="1">Tháng 11-2021</option>
+                <option value="1">Tháng 10-2021</option>
             </select>
             <button class="btn btn-sm btn-default">Tìm</button>                
         </div>

@@ -7,8 +7,8 @@
 						<i class="fa fa-eye"> </i>
 					</div>
 					 <div class="col-md-8 market-update-left">
-					 <h4>Visitors</h4>
-					<h3>13,500</h3>
+					 <h4>Khách hàng</h4>
+					<h3>5</h3>
 					<p>Other hand, we denounce</p>
 				  </div>
 				  <div class="clearfix"> </div>
@@ -20,8 +20,8 @@
 						<i class="fa fa-users" ></i>
 					</div>
 					<div class="col-md-8 market-update-left">
-					<h4>Users</h4>
-						<h3>1,250</h3>
+					<h4>Nhà cung cấp</h4>
+						<h3>5</h3>
 						<p>Other hand, we denounce</p>
 					</div>
 				  <div class="clearfix"> </div>
@@ -33,8 +33,8 @@
 						<i class="fa fa-usd"></i>
 					</div>
 					<div class="col-md-8 market-update-left">
-						<h4>Sales</h4>
-						<h3>1,500</h3>
+						<h4>Sản phẩm</h4>
+						<h3>22</h3>
 						<p>Other hand, we denounce</p>
 					</div>
 				  <div class="clearfix"> </div>
@@ -46,8 +46,8 @@
 						<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 					</div>
 					<div class="col-md-8 market-update-left">
-						<h4>Orders</h4>
-						<h3>1,500</h3>
+						<h4>Phiếu</h4>
+						<h3>3</h3>
 						<p>Other hand, we denounce</p>
 					</div>
 				  <div class="clearfix"> </div>
@@ -112,75 +112,7 @@
 		    color: #fff;
 		}
 	</style>
-
-<p class="title_thongke">Thống kê truy cập</p>
-
-<table class="table table-bordered table-dark">
-  <thead>
-    <tr>
-      <th scope="col">Đang online</th>
-      <th scope="col">Tổng tháng trước</th>
-      <th scope="col">Tổng tháng này</th>
-      <th scope="col">Tổng một năm</th>
-      <th scope="col">Tổng truy cập</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-		
-    </tr>
-   
-  </tbody>
-</table>
-
 </div>
-
-<div class="row">
-
-	<div class="col-md-4 col-xs-12">
-		<p class="title_thongke">Thống kê tổng sản phẩm bài viết đơn hàng</p>
-		<div id="donut"></div>	
-	</div>
-
-	<!--------------------------->
-	<div class="col-md-4 col-xs-12">
-		<h3>Doanh thu từng sản phẩm</h3>
-
-		
-		
-	</div>
-	<div class="col-md-4 col-xs-12">
-		<h3>Lợi nhuận từng sản phẩm</h3>
-		
-		<ol class="list_views">
-			
-		</ol>
-		
-	</div>
-
-	<div class="col-md-4 col-xs-12">
-		<style type="text/css">
-			ol.list_views {
-			    margin: 10px 0;
-			    color: #fff;
-			}
-			ol.list_views a {
-			    color: orange;
-			    font-weight: 400;
-			}
-		</style>
-		<h3>Sản phẩm mua nhiều</h3>
-
-		<ol class="list_views">
-			
-		</ol>
-
-	</div>
-</div>
-
-
-</div>
-
 <script>
 	chart60daysorder();
 

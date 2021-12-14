@@ -99,9 +99,22 @@ class KhachHangController extends Controller
         $khachhang = DB::table('tbl_khachhang')
         ->where('ID', $id)
         ->first();
+        $sanphammua = DB::table('tbl_chitietphieumuahang')
+        ->join('tbl_phieumuahang', 'tbl_chitietphieumuahang.PhieuMuaHangID', '=', 'tbl_phieumuahang.ID')
+        ->join('tbl_danhmucsanpham', 'tbl_chitietphieumuahang.SanPhamID', '=', 'tbl_danhmucsanpham.ID')
+        ->where('tbl_phieumuahang.KhachHangID', $id)
+        ->select('tbl_chitietphieumuahang.*', 'tbl_phieumuahang.NgayLapPhieu', 'tbl_danhmucsanpham.ten as LoaiSanPham')
+        ->get();
+        $sanphamban = DB::table('tbl_chitietphieubanhang')
+        ->join('tbl_phieubamhang', 'tbl_chitietphieubanhang.PhieuBanHangID', '=', 'tbl_phieubamhang.ID')
+        ->where('tbl_phieubamhang.KhachHangID', $id)
+        ->select('tbl_chitietphieubanhang.*', 'tbl_phieubamhang.NgayLapPhieu')
+        ->get();
         return view('quanlykhachhang.chitietkhachhang')
             ->with([
                 'data'=>$khachhang,
+                'sanphamban'=>$sanphamban,
+                'sanphammua'=>$sanphammua,
         ]);
     }
 }

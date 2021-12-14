@@ -33,6 +33,21 @@ class PhieuMuaHangController extends Controller
         $sosanpham = $request->sosanpham;
         for ($i = 0; $i < $sosanpham; $i++){
             $tonggiatri += $request->thanhtien[$i];
+        }
+        $tondaungay = DB::table('tbl_tonquy')
+                    ->orderBy('ID','DESC')
+                    ->first()
+                    ->TonCuoiNgay;
+
+        if (!DB::table('tbl_tonquy')->where('Ngay',date('Y-m-d'))->exists())
+        {
+            DB::table('tbl_tonquy')->insert([
+                'Thang'=>date('m-Y'),
+                'Thu'=>0,
+                'Chi'=>0,
+                'TonDauNgay'=>$tondaungay,
+                'TonCuoiNgay'=>$tondaungay,
+            ]);
         } 
         $tonngay = DB::table('tbl_tonquy')->where('Ngay', date('Y-m-d'))->first()->TonCuoiNgay;
         $chingay = DB::table('tbl_tonquy')->where('Ngay', date('Y-m-d'))->first()->Chi;

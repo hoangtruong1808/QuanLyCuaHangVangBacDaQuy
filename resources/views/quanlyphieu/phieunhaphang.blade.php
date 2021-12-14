@@ -18,7 +18,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Nhà cung cấp:</label>
                         <div class="col-sm-6">
-                            <select class="form-control input-lg select2 select2-hidden-accessible area" style="width: 100%;" tabindex="-1" aria-hidden="true" name="nhacungcap"> 
+                            <select class="form-control input-lg select2 select2-hidden-accessible area" style="width: 100%;" tabindex="-1" aria-hidden="true" name="nhacungcap" required> 
                                 <option value="" selected disabled hidden>Chọn nhà cung cấp</option>
                                 @foreach($nhacungcap as $value)
                                 <option value="{{ $value->ID }}">{{$value->Ten}}</option>
@@ -29,7 +29,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Nhân viên lập phiếu:</label>
                         <div class="col-sm-6">
-                            <select class="form-control input-lg select2 select2-hidden-accessible area" style="width: 100%;" tabindex="-1" aria-hidden="true" name="nhanvien"> 
+                            <select class="form-control input-lg select2 select2-hidden-accessible area" style="width: 100%;" tabindex="-1" aria-hidden="true" name="nhanvien" required> 
                                 <option value="" selected disabled hidden>Chọn nhân viên lập phiếu</option>
 
                                 @foreach($nhanvien as $value)
@@ -42,7 +42,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Số sản phẩm:</label>
                         <div class="col-sm-1">  
-                            <input type="text" class="form-control" style="width: 80px" id="sosanpham" name="sosanpham">   
+                            <input type="text" class="form-control" style="width: 80px" id="sosanpham" name="sosanpham" required>   
                         </div>
                         <div class="col-sm-1">
                             <a class="btn btn-info" id="tao">Tạo</a>
