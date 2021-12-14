@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2021 at 09:56 AM
+-- Generation Time: Dec 14, 2021 at 11:31 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -42,46 +42,10 @@ CREATE TABLE `tbl_chitietphieubanhang` (
 --
 
 INSERT INTO `tbl_chitietphieubanhang` (`ID`, `MaSanPham`, `PhieuBanHangID`, `SanPhamID`, `SoLuong`, `DonGia`, `ThanhTien`) VALUES
-(1, '0', 1, 9, 1, 4, 5),
-(2, '0', 1, 9, 6, 2, 4),
-(3, '0', 2, 9, 1, 1, 1),
-(4, '0', 2, 9, 2, 2, 2),
-(5, '0', 3, 9, 1, 1, 1),
-(6, '0', 3, 9, 2, 2, 2),
-(7, '0', 4, 9, 1, 1, 1),
-(8, '0', 4, 9, 2, 2, 2),
-(9, '0', 5, 9, 1, 1, 1),
-(10, '0', 5, 9, 2, 2, 2),
-(11, '0', 6, 9, 3, 4, 5),
-(12, '0', 6, 9, 1, 2, 4),
-(13, '0', 7, 9, 1, 2, 3),
-(14, '0', 8, 9, 1, 2, 3),
-(15, '0', 9, 7, 1, 2, 3),
-(16, '0', 9, 9, 4, 5, 6),
-(17, '0', 10, 9, 4, 4, 1),
-(18, '0', 10, 9, 5, 5, 1),
-(19, 'V-SJC1', 12, 9, 3, 5000, 10000),
-(20, 'V-PNJ2', 12, 9, 5, 1111, 111111),
-(21, 'V-PNJ1', 13, 7, 1, 2, 3),
-(22, 'V-SJC1', 13, 9, 4, 5, 6),
-(23, 'V-PNJ2', 14, 9, 4, 5, 6),
-(24, 'V-PNJ2', 14, 9, 1, 2, 3),
-(25, 'V-PNJ2', 15, 9, 4, 5, 6),
-(26, 'V-PNJ2', 15, 9, 1, 2, 3),
-(27, 'V-SJC2', 16, 9, 1000, 10000, 133),
-(28, 'V-SJC2', 16, 9, 1313, 131, 133131),
-(29, 'V-PNJ3', 17, 9, 100, 19099, 10000),
-(30, 'V-SJC3', 17, 9, 10000, 31, 313131),
-(31, 'V-PNJ4', 19, 7, 2, 3, 4),
-(32, 'V-PNJ4', 19, 7, 4, 5, 6),
-(33, 'V-SJC4', 20, 9, 2, 2, 1000),
-(34, 'V-SJC4', 21, 9, 2, 2, 1000),
-(35, 'V-SJC4', 22, 9, 2, 2, 1000),
-(36, 'V-SJC6', 23, 9, 2, 2, 10000000),
-(37, 'V-SJC6', 24, 9, 2, 2, 10000000),
-(38, 'V-SJC5', 25, 9, 4, 100000000, 10000000),
-(39, 'V-PNJ5', 26, 7, 1, 1, 1),
-(40, 'V-PNJ5', 26, 9, 3, 4, 5);
+(1, 'SJC1', 1, 1, 1, 1000000, 1000000),
+(2, 'SJC2', 1, 2, 1, 1000000, 1000000),
+(3, 'SJC3', 2, 3, 1000, 5000, 1000000),
+(4, 'SJC3', 2, 3, 1000, 5000, 1000000);
 
 -- --------------------------------------------------------
 
@@ -104,21 +68,8 @@ CREATE TABLE `tbl_chitietphieumuahang` (
 --
 
 INSERT INTO `tbl_chitietphieumuahang` (`ID`, `PhieuMuaHangID`, `SanPhamID`, `SoLuong`, `DonGia`, `PhanTram`, `ThanhTien`) VALUES
-(41, 36, 7, 1, 1111, 1, 111111),
-(42, 36, 9, 1, 1111, 1, 11111),
-(43, 37, 7, 3, 5, 134, 1),
-(44, 37, 9, 4, 5, 14, 412412),
-(45, 38, 7, 2, 3, 4, 5),
-(46, 38, 9, 1, 5, 6, 7),
-(47, 39, 9, 3, 4, 5, 6),
-(48, 39, 9, 5, 1, 5, 6),
-(49, 40, 7, 1, 2, 3, 4),
-(50, 41, 7, 1, 2, 3, 4),
-(51, 41, 9, 5, 6, 7, 8),
-(52, 42, 7, 1, 2, 3, 4),
-(53, 42, 9, 5, 6, 7, 8),
-(54, 43, 7, 2, 2, 2, 5000),
-(55, 44, 7, 1, 1, 1, 1000000);
+(1, 1, 2, 3, 5000000, 80, 13000000),
+(2, 1, 2, 3, 5000000, 80, 13000000);
 
 -- --------------------------------------------------------
 
@@ -140,36 +91,12 @@ CREATE TABLE `tbl_chitietphieunhaphang` (
 --
 
 INSERT INTO `tbl_chitietphieunhaphang` (`ID`, `PhieuNhapHangID`, `SanPhamID`, `SoLuong`, `DonGia`, `ThanhTien`) VALUES
-(1, 2, 7, 1, 2, 3),
-(2, 2, 9, 4, 5, 6),
-(3, 3, 7, 1, 2, 3),
-(4, 3, 9, 4, 5, 6),
-(5, 4, 7, 1, 2, 3),
-(6, 4, 9, 4, 5, 6),
-(7, 5, 7, 1, 2, 3),
-(8, 5, 9, 3, 4, 5),
-(9, 6, 7, 1, 2, 3),
-(10, 6, 9, 4, 5, 6),
-(11, 7, 7, 1, 2, 3),
-(12, 7, 9, 4, 5, 6),
-(13, 8, 7, 1, 2, 3),
-(14, 8, 9, 4, 5, 6),
-(15, 9, 7, 1, 2, 3),
-(16, 9, 9, 4, 5, 6),
-(17, 10, 7, 1, 2, 3),
-(18, 10, 9, 4, 5, 6),
-(19, 11, 7, 2, 5000, 10000),
-(20, 12, 7, 2, 5000, 10000),
-(21, 12, 9, 2, 5000, 10000),
-(22, 13, 7, 2, 5000, 10000),
-(23, 13, 9, 2, 5000, 10000),
-(24, 14, 9, 4, 1, 5),
-(25, 14, 9, 4, 5, 1),
-(26, 15, 7, 1, 1, 1),
-(27, 16, 7, 1, 1, 2000000),
-(28, 16, 9, 1, 1, 5000000),
-(29, 17, 7, 1, 1, 3),
-(30, 17, 9, 3, 4, 1);
+(1, 2, 1, 3, 5000000, 15000000),
+(2, 2, 2, 3, 200000, 6000000),
+(3, 4, 2, 1, 5000000, 5000000),
+(4, 4, 2, 1, 5000000, 5000000),
+(5, 4, 2, 1, 5000000, 5000000),
+(6, 4, 4, 1, 5000000, 5000000);
 
 -- --------------------------------------------------------
 
@@ -192,8 +119,10 @@ CREATE TABLE `tbl_danhmucsanpham` (
 --
 
 INSERT INTO `tbl_danhmucsanpham` (`ID`, `Ten`, `Loai`, `MaVach`, `GiaNhap`, `GiaBan`, `TinhTrang`) VALUES
-(7, 'Vàng PNJ', 'Vàng', 'V-PNJ', 5510000, 5210000, '1'),
-(9, 'Phú Qúy SJC', 'Vàng', 'V-SJC', 6021100, 6087100, '1');
+(1, 'PNJ', 'Vàng', 'PNJ', 5171000, 5251000, '1'),
+(2, 'SJC', 'Vàng', 'SJC', 6100000, 6170000, '1'),
+(3, 'Vàng SBJ', 'Vàng', 'VSBJ', 5000000, 5005000, '1'),
+(4, 'Bạc Doji', 'Bạc', 'BDOJI', 3000000, 3000000, '1');
 
 -- --------------------------------------------------------
 
@@ -216,24 +145,9 @@ CREATE TABLE `tbl_diemdanh` (
 --
 
 INSERT INTO `tbl_diemdanh` (`ID`, `NhanvienID`, `CaSang`, `CaChieu`, `CaToi`, `Ngay`, `Thang`) VALUES
-(18, 2, 1, 1, 0, '2021-11-16', 11),
-(19, 9, 0, 1, 0, '2021-11-16', 11),
-(20, 10, 1, 1, 1, '2021-11-16', 11),
-(21, 2, 1, 0, 1, '2021-11-17', 11),
-(22, 9, 0, 1, 0, '2021-11-17', 11),
-(23, 10, 1, 0, 0, '2021-11-17', 11),
-(24, 2, 1, 1, 0, '2021-11-22', 11),
-(25, 9, 0, 1, 1, '2021-11-22', 11),
-(26, 10, 1, 1, 1, '2021-11-22', 11),
-(27, 2, 1, 1, 0, '2021-11-24', 11),
-(28, 9, 0, 1, 1, '2021-11-24', 11),
-(29, 10, 1, 1, 1, '2021-11-24', 11),
-(30, 2, 0, 0, 0, '2021-11-29', 11),
-(31, 9, 0, 0, 0, '2021-11-29', 11),
-(32, 10, 0, 0, 0, '2021-11-29', 11),
-(33, 2, 1, 1, 1, '2021-11-30', 11),
-(34, 9, 0, 1, 1, '2021-11-30', 11),
-(35, 10, 1, 1, 1, '2021-11-30', 11);
+(1, 2, 1, 1, 0, '2021-12-14', 12),
+(2, 3, 1, 1, 1, '2021-12-14', 12),
+(3, 4, 0, 1, 1, '2021-12-14', 12);
 
 -- --------------------------------------------------------
 
@@ -258,8 +172,11 @@ CREATE TABLE `tbl_khachhang` (
 --
 
 INSERT INTO `tbl_khachhang` (`ID`, `HoTen`, `CMND`, `NgaySinh`, `GioiTinh`, `DiaChi`, `DienThoai`, `AnhDaiDien`, `GhiChu`) VALUES
-(13, 'Nguyễn Văn A', '1234567', '2021-11-06', 'Nam', 'Hà Nội', '123456', '11022_978151248868739_7317126062981206639_n - Copy.jpg', NULL),
-(14, 'Nguyễn Văn B', '123131', '2021-11-11', 'Nữ', 'Chung cư Prosper Plaza, 22/14 Phan Văn Hớn, Phường Tân Thới Nhất, Quận 12', '0388783394', '44639219_2068145903236393_4957032652092735488_n - Copy.jpg', NULL);
+(1, 'Nguyễn Văn A', '123456789', '1999-12-02', 'Nam', 'Thành phố Hồ Chí Minh', '123456789', 'Acer_Wallpaper_01_5000x2814.jpg', NULL),
+(2, 'Nguyễn Tuấn', '123456789', '1999-12-02', 'Nữ', 'Thành phố Hồ Chí Minh', '12345', 'Acer_Wallpaper_01_5000x2814.jpg', NULL),
+(3, 'Trần Thành', '1234567', '1999-12-02', 'Nữ', 'Thành phố Hồ Chí Minh', '12345', 'Acer_Wallpaper_01_5000x2814.jpg', NULL),
+(4, 'Lê Hoàng', '12345678', '1999-12-02', 'Nam', 'Thành phố Hồ Chí Minh', '12345', 'Acer_Wallpaper_01_5000x2814.jpg', NULL),
+(5, 'Trần Thư', '1234567899', '2021-12-16', 'Nữ', 'Thành phố Hồ Chí Minh', '12345', 'Acer_Wallpaper_01_5000x2814.jpg', NULL);
 
 -- --------------------------------------------------------
 
@@ -280,9 +197,9 @@ CREATE TABLE `tbl_luong` (
 --
 
 INSERT INTO `tbl_luong` (`ID`, `NhanvienID`, `SoCa`, `Thang`, `TongLuong`) VALUES
-(6, 2, 11, 11, 1320000),
-(7, 9, 8, 11, 960000),
-(8, 10, 13, 11, 2080000);
+(1, 2, 2, 12, 320000),
+(2, 3, 3, 12, 360000),
+(3, 4, 2, 12, 320000);
 
 -- --------------------------------------------------------
 
@@ -305,8 +222,11 @@ CREATE TABLE `tbl_nhacungcap` (
 --
 
 INSERT INTO `tbl_nhacungcap` (`ID`, `Ten`, `AnhDaiDien`, `DienThoai`, `Gmail`, `GhiChu`, `TrangThai`) VALUES
-(5, 'Tập đoàn Vàng bạc đá quý DOJI', 'doji.jpg', '123456', 'doji@gmail.com', NULL, 1),
-(7, 'Tập đoàn vàng bạc đá quý PNJ', 'Acer_Wallpaper_01_5000x2814.jpg', '12345', 'pnj@gmail.com', NULL, 1);
+(1, 'Tập đoàn Vàng bạc đá quý DOJI', 'Acer_Wallpaper_01_5000x2814.jpg', '12345', 'doji@gmail.com', NULL, 1),
+(2, 'Công ty cổ phần Vàng bạc đá quý Phú Nhuận (PNJ)', 'Acer_Wallpaper_01_5000x2814.jpg', '12345', 'pnj@gmail.com', NULL, 1),
+(3, 'Công ty TNHH MTV Vàng bạc đá quý Sài Gòn (SJC)', 'Acer_Wallpaper_01_5000x2814.jpg', '12345', 'sjc@gmail.com', NULL, 1),
+(4, 'Công ty Vàng bạc đá quý Sacombank (SBJ)', 'Acer_Wallpaper_01_5000x2814.jpg', '12345', 'cbj@gmail.com', NULL, 1),
+(5, 'Công ty Vàng bạc Đá quý Bảo Tín Minh Châu', 'Acer_Wallpaper_01_5000x2814.jpg', '1235', 'minhchau@gmail.com', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -333,9 +253,10 @@ CREATE TABLE `tbl_nhanvien` (
 --
 
 INSERT INTO `tbl_nhanvien` (`ID`, `HoTen`, `TaiKhoan`, `MatKhau`, `CMND`, `ChucVu`, `DiaChi`, `DienThoai`, `AnhDaiDien`, `GhiChu`, `TrangThai`) VALUES
-(2, 'Nguyễn Hoàng Trường', 'hoangtruong1808', '$2y$10$dLdlGUb1l1cb1.FwDVdQee0psqR0dMvfQ/lOviIC5y9dWuYdKCe1.', '123131', 'Nhân viên', '25B Tô Vĩnh Diện, TP.Pleiku, Gia Lai', '0388783394', '11022_978151248868739_7317126062981206639_n - Copy.jpg', NULL, 1),
-(9, 'Lâm Trường', 'lamtruong', '$2y$10$eJPchXfH.qEuGobHmYsKBu6TrEPivdpTlz.MuBKqi6Br.7oN0h8H.', '123456', 'Nhân viên', 'TP.HCM', '123456', '2016 - Tet.jpg', NULL, 1),
-(10, 'Đặng Tiến Hoàng', 'dangtienhoang', '$2y$10$m8CzbwBzWXJL8tm3GwjWv.xgdYQm0M0E7YthPojJraXkikMxU/9Q2', '123456', 'Quản lý', 'Bình Phước', '123456', '2020-Tet.2.jpg', NULL, 1);
+(1, 'admin', 'admin', 'admin', 'admin', 'Admin', 'admin', 'admin', 'admin', 'admin', 0),
+(2, 'Nguyễn Hoàng Trường', 'hoangtruong', '123', '12345678', 'Quản lý', 'Thành phố Hồ Chí Minh', '12345', 'Acer_Wallpaper_01_5000x2814.jpg', NULL, 1),
+(3, 'Lâm Trường', 'lamtruong', '123', '12345678', 'Nhân viên', 'Thành phố Hồ Chí Minh', '12345', 'Acer_Wallpaper_01_5000x2814.jpg', NULL, 1),
+(4, 'Nguyễn Tiến Hoàng', 'tienhoang', '123', '12345678', 'Quản lý', 'Thành phố Hồ Chí Minh', '12345', 'Acer_Wallpaper_01_5000x2814.jpg', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -356,32 +277,8 @@ CREATE TABLE `tbl_phieubamhang` (
 --
 
 INSERT INTO `tbl_phieubamhang` (`ID`, `KhachHangID`, `NhanVienID`, `NgayLapPhieu`, `TongGiaTri`) VALUES
-(1, 14, 9, '2021-11-23', 9),
-(2, 13, 9, '2021-11-23', 3),
-(3, 13, 9, '2021-11-23', 3),
-(4, 13, 9, '2021-11-23', 3),
-(5, 13, 9, '2021-11-23', 3),
-(6, 13, 10, '2021-11-23', 9),
-(7, 13, 9, '2021-11-23', 3),
-(8, 13, 9, '2021-11-23', 3),
-(9, 13, 9, '2021-11-23', 9),
-(10, 14, 9, '2021-11-24', 2),
-(11, 13, 10, '2021-11-24', 121111),
-(12, 13, 10, '2021-11-24', 121111),
-(13, 13, 10, '2021-11-24', 9),
-(14, 13, 9, '2021-11-29', 9),
-(15, 13, 9, '2021-11-29', 9),
-(16, 14, 9, '2021-11-29', 133264),
-(17, 14, 9, '2021-11-29', 323131),
-(18, 13, 9, '2021-11-29', 10),
-(19, 13, 9, '2021-11-29', 10),
-(20, 14, 9, '2021-11-29', 1000),
-(21, 14, 9, '2021-11-29', 1000),
-(22, 14, 9, '2021-11-29', 1000),
-(23, 14, 2, '2021-11-29', 10000000),
-(24, 14, 2, '2021-11-29', 10000000),
-(25, 14, 9, '2021-11-30', 10000000),
-(26, 13, 9, '2021-12-01', 6);
+(1, 2, 3, '2021-12-14', 2000000),
+(2, 2, 3, '2021-12-14', 2000000);
 
 -- --------------------------------------------------------
 
@@ -402,15 +299,7 @@ CREATE TABLE `tbl_phieumuahang` (
 --
 
 INSERT INTO `tbl_phieumuahang` (`ID`, `KhachHangID`, `NhanVienID`, `NgayLapPhieu`, `TongGiaTri`) VALUES
-(36, 13, 9, '2021-11-17', 122222),
-(37, 13, 9, '2021-11-22', 412413),
-(38, 14, 10, '2021-11-23', 12),
-(39, 13, 10, '2021-11-23', 12),
-(40, 13, 9, '2021-11-24', 12),
-(41, 13, 9, '2021-11-24', 12),
-(42, 13, 9, '2021-11-24', 12),
-(43, 13, 9, '2021-11-29', 5000),
-(44, 13, 2, '2021-11-29', 1000000);
+(1, 2, 3, '2021-12-14', 26000000);
 
 -- --------------------------------------------------------
 
@@ -431,23 +320,10 @@ CREATE TABLE `tbl_phieunhaphang` (
 --
 
 INSERT INTO `tbl_phieunhaphang` (`ID`, `NhaCungCapID`, `NhanVienID`, `NgayLapPhieu`, `TongGiaTri`) VALUES
-(1, 13, 10, '2021-11-23', 9),
-(2, 13, 10, '2021-11-23', 9),
-(3, 6, 2, '2021-11-23', 9),
-(4, 6, 2, '2021-11-23', 9),
-(5, 5, 9, '2021-11-23', 8),
-(6, 5, 9, '2021-11-23', 9),
-(7, 5, 9, '2021-11-23', 9),
-(8, 6, 9, '2021-11-23', 9),
-(9, 5, 9, '2021-11-23', 9),
-(10, 5, 9, '2021-11-23', 9),
-(11, 5, 9, '2021-11-24', 20000),
-(12, 5, 9, '2021-11-24', 20000),
-(13, 5, 9, '2021-11-24', 20000),
-(14, 5, 9, '2021-11-29', 6),
-(15, 5, 9, '2021-11-29', 1),
-(16, 5, 2, '2021-11-29', 7000000),
-(17, 5, 9, '2021-11-30', 4);
+(1, 1, 3, '2021-12-14', 40000000),
+(2, 2, 2, '2021-12-14', 21000000),
+(3, 1, 3, '2021-12-14', 0),
+(4, 2, 2, '2021-12-14', 20000000);
 
 -- --------------------------------------------------------
 
@@ -473,23 +349,14 @@ CREATE TABLE `tbl_sanpham` (
 --
 
 INSERT INTO `tbl_sanpham` (`ID`, `MaVach`, `SoLuong`, `Loai`, `GiaNhap`, `GiaBan`, `GiaTri`, `TinhTrang`, `PhieuNhapHangID`, `PhieuMuaHangID`) VALUES
-(1, 'V-PNJ1', 0, 7, 10000, 5210000, 0, 1, 12, NULL),
-(2, 'V-SJC1', 0, 9, 10000, 6087100, 0, 0, 12, NULL),
-(3, 'V-PNJ2', 0, 7, 10000, 5210000, 0, 0, 13, NULL),
-(4, 'V-SJC2', 0, 9, 10000, 6087100, 0, 0, 13, NULL),
-(5, 'V-PNJ3', 1, 7, 4, 5210000, 3, 0, NULL, 41),
-(6, 'V-SJC3', 5, 9, 8, 6087100, 7, 0, NULL, 41),
-(7, 'V-PNJ4', 1, 7, 4, 5210000, 3, 0, NULL, 42),
-(8, 'V-SJC4', 5, 9, 8, 6087100, 7, 0, NULL, 42),
-(9, 'V-SJC5', 4, 9, 5, 6087100, 100, 0, 14, NULL),
-(10, 'V-SJC6', 4, 9, 1, 6087100, 100, 0, 14, NULL),
-(11, 'V-PNJ5', 2, 7, 5000, 104200, 2, 0, NULL, 43),
-(12, 'V-PNJ6', 1, 7, 1, 5210000, 100, 1, 15, NULL),
-(13, 'V-PNJ7', 1, 7, 1000000, 52100, 1, 1, NULL, 44),
-(14, 'V-PNJ8', 1, 7, 2000000, 5210000, 100, 1, 16, NULL),
-(15, 'V-SJC7', 1, 9, 5000000, 6087100, 100, 1, 16, NULL),
-(16, 'V-PNJ9', 1, 7, 3, 5210000, 100, 1, 17, NULL),
-(17, 'V-SJC8', 3, 9, 1, 6087100, 100, 1, 17, NULL);
+(1, 'PNJ1', 3, 1, 15000000, 5251000, 100, 1, 2, NULL),
+(2, 'SJC1', 3, 2, 6000000, 6170000, 100, 0, 2, NULL),
+(3, 'SJC2', 3, 2, 13000000, 4936000, 80, 0, NULL, 1),
+(4, 'SJC3', 3, 2, 13000000, 4936000, 80, 0, NULL, 1),
+(5, 'SJC4', 1, 2, 5000000, 6170000, 100, 1, 4, NULL),
+(6, 'SJC5', 1, 2, 5000000, 6170000, 100, 1, 4, NULL),
+(7, 'SJC6', 1, 2, 5000000, 6170000, 100, 1, 4, NULL),
+(8, 'BDOJI1', 1, 4, 5000000, 3000000, 100, 1, 4, NULL);
 
 -- --------------------------------------------------------
 
@@ -512,10 +379,9 @@ CREATE TABLE `tbl_tonquy` (
 --
 
 INSERT INTO `tbl_tonquy` (`ID`, `Ngay`, `Thang`, `Thu`, `Chi`, `TonDauNgay`, `TonCuoiNgay`) VALUES
-(1, '2021-11-28', '11-2021', 0, 0, 1000, 5000),
-(4, '2021-11-29', '11-2021', 20000000, 8000000, 5000, 12005000),
-(6, '2021-11-30', '11-2021', 0, 4, 12005000, 12004996),
-(7, '2021-12-01', '12-2021', 6, 0, 12004996, 12005002);
+(1, '2021-12-12', '12-2021', 2000000, 47000000, 220000000, 176000000),
+(2, '2021-12-13', '12-2021', 2000000, 0, 176000000, 178000000),
+(3, '2021-12-14', '12-2021', 1000000, 20000000, 178000000, 159000000);
 
 -- --------------------------------------------------------
 
@@ -530,6 +396,17 @@ CREATE TABLE `tbl_tygiasanpham` (
   `GiaBan` int(11) NOT NULL,
   `NgayCapNhat` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_tygiasanpham`
+--
+
+INSERT INTO `tbl_tygiasanpham` (`ID`, `DanhmucID`, `GiaNhap`, `GiaBan`, `NgayCapNhat`) VALUES
+(1, 1, 5170000, 5250000, '2021-12-14 17:10:38'),
+(2, 2, 6100000, 6170000, '2021-12-14 17:11:17'),
+(3, 3, 5000000, 5005000, '2021-12-14 17:12:04'),
+(4, 1, 5171000, 5251000, '2021-12-14 17:13:29'),
+(5, 4, 3000000, 3000000, '2021-12-14 17:14:54');
 
 --
 -- Indexes for dumped tables
@@ -641,91 +518,91 @@ ALTER TABLE `tbl_tygiasanpham`
 -- AUTO_INCREMENT for table `tbl_chitietphieubanhang`
 --
 ALTER TABLE `tbl_chitietphieubanhang`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_chitietphieumuahang`
 --
 ALTER TABLE `tbl_chitietphieumuahang`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tbl_chitietphieunhaphang`
 --
 ALTER TABLE `tbl_chitietphieunhaphang`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_danhmucsanpham`
 --
 ALTER TABLE `tbl_danhmucsanpham`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_diemdanh`
 --
 ALTER TABLE `tbl_diemdanh`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_khachhang`
 --
 ALTER TABLE `tbl_khachhang`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_luong`
 --
 ALTER TABLE `tbl_luong`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_nhacungcap`
 --
 ALTER TABLE `tbl_nhacungcap`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbl_nhanvien`
 --
 ALTER TABLE `tbl_nhanvien`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_phieubamhang`
 --
 ALTER TABLE `tbl_phieubamhang`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tbl_phieumuahang`
 --
 ALTER TABLE `tbl_phieumuahang`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_phieunhaphang`
 --
 ALTER TABLE `tbl_phieunhaphang`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_sanpham`
 --
 ALTER TABLE `tbl_sanpham`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tbl_tonquy`
 --
 ALTER TABLE `tbl_tonquy`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_tygiasanpham`
 --
 ALTER TABLE `tbl_tygiasanpham`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables

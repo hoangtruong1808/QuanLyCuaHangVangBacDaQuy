@@ -113,7 +113,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span>Nhà cung cấp</span>
                     </a>
                 </li>
-                @if( Session::get('chucvu')=="Quản lý")
+                @if( Session::get('chucvu')=="Quản lý" || Session::get('chucvu')=="Admin")
                 <li class="sub-menu">
                     <a href="javascript:;">
                         <i class="fa fa-book"></i>
@@ -122,7 +122,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <ul class="sub">
                         <li><a href="{{ URL::to('danh-sach-nhan-vien') }}">Danh sách nhân viên</a></li>
                         <li><a href="{{ URL::to('diem-danh-nhan-vien') }}">Điểm danh nhân viên</a></li>
+                        @if (Session::get('chucvu')=="Admin")
                         <li><a href="{{ URL::to('phan-quyen-nhan-vien') }}">Phân quyền nhân viên</a></li>
+                        @endif
                     </ul>
                 </li>
                 @endif
@@ -150,7 +152,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li><a href="{{ URL::to('lap-phieu-ban-hang') }}">Lập phiếu bán hàng</a></li>
                     </ul>
                 </li>
-                @if( Session::get('chucvu')=="Quản lý")
+                @if( Session::get('chucvu')=="Quản lý" || Session::get('chucvu')=="Admin")
                 <li class="sub-menu">
                     <a href="{{ URL::to('bao-cao-ton-quy') }}">
                         <i class="fa fa-book"></i>

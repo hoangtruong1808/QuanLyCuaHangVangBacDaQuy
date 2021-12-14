@@ -47,8 +47,8 @@
                     <th style="color:black">Tên</th>
                     <th style="color:black">Loại</th>
                     <th style="color:black">Mã</th>
-                    <th style="color:black">Giá nhập</th>
-                    <th style="color:black">Giá bán</th>
+                    <th style="color:black">Giá nhập(VNĐ/chỉ)</th>
+                    <th style="color:black">Giá bán(VNĐ/chỉ)</th>
                     <th style="color:black">Tình trạng</th>
                     <th style="color:black">Cập nhật</th>
                     <th style="color:black">Xóa</th>

@@ -39,13 +39,13 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Giá nhập</label>
+                        <label class="col-sm-3 control-label">Giá nhập (VNĐ/chỉ)</label>
                         <div class="col-sm-6">
                             <input type="text" class="form-control round-input" name="gianhap" required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label">Giá bán</label>
+                        <label class="col-sm-3 control-label">Giá bán (VNĐ/chỉ)</label>
                         <div class="col-sm-6">
                             <input type="text" class="form-control round-input" name="giaban" required>
                         </div>
